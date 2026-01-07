@@ -1,0 +1,71 @@
+@layer base
+	*,
+	*::before,
+	*::after
+		box-sizing: border-box
+
+	html::-webkit-scrollbar-track
+		// background: #D1D1D1
+		@apply bg-neutral-100 rounded-none
+
+	html::-webkit-scrollbar
+		width: 0
+		height: r(4)
+
+	html::-webkit-scrollbar-thumb
+		border-radius: setClamp(2)
+		@apply bg-primary-1 rounded-none
+	*:focus-within,*:focus-visible
+		// @apply outline-primary-300
+		@apply outline-0
+	html
+		-webkit-text-size-adjust: 100%
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+	::-moz-range-track
+		background: black
+		border: 0
+
+	img
+		display: inline
+	input::-moz-focus-inner,
+	input::-moz-focus-outer
+		border: 0
+
+	main
+		@apply pt-[var(--header-height)] xl:pt-0
+	body
+		@apply font-body
+		@apply font-normal
+		@apply tracking-[0.03rem]
+		@screen xl
+			@apply clamp:text-[14/16]
+		&:not(.home)
+			&:not(:has(.page-banner))
+				main
+					@apply pt-[var(--header-height)]
+
+	html
+		scroll-behavior: initial
+	select
+		background-image: url('data:image/svg+xml,<svg width="23" height="12" viewBox="0 0 23 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.1875 0.931641C1.32812 0.744141 1.51562 0.650391 1.75 0.650391C1.89062 0.650391 2.07812 0.697266 2.21875 0.837891L11.4531 9.32227L20.7344 0.837891C21.0156 0.556641 21.4844 0.556641 21.7656 0.884766C22.0469 1.16602 22.0469 1.63477 21.7188 1.91602L11.9688 10.916C11.6875 11.1973 11.2656 11.1973 10.9844 10.916L1.23438 1.91602C0.90625 1.68164 0.90625 1.21289 1.1875 0.931641Z" fill="white"/></svg>')
+		background-size: setClamp(21) setClamp(24)
+		background-position: center right
+		@apply bg-no-repeat appearance-none
+		@apply pr-6
+		@screen xl
+			background-size: r(21) r(24)
+		option
+			@apply bg-white text-neutral-950
+
+	.description,.content,.ctn
+		@extend .keep-ul-disc !optional
+		th,td
+			@apply border border-neutral-200 p-1
+
+	.description,.content,.ctn
+		@extend .keep-ul-disc !optional
+		th,td
+			@apply border border-neutral-200 p-1
+
+	b,strong
+		@apply font-semibold

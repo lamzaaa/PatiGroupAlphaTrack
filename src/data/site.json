@@ -1,0 +1,14 @@
+{
+	"title": "vituum + pug",
+	"template": "layouts/default.pug",
+	"navigation": [
+		{
+			"name": "Trang chủ",
+			"slug": "/"
+		},
+		{
+			"name": "Giới thiệu",
+			"slug": "/about"
+		}
+	]
+}

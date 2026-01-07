@@ -1,0 +1,314 @@
+
+#overlay
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	@apply bg-transparent
+	@apply pointer-events-none opacity-0 transition-all z-30
+	&.active
+		@apply pointer-events-auto opacity-100
+
+.edit-link-post
+	width: setClamp(20)
+	height: setClamp(20)
+	@apply pointer-events-auto inline-flex items-center justify-center
+	@apply relative z-10
+	span
+		@apply text-primary-3
+
+.edit-term-post
+	width: setClamp(20)
+	height: setClamp(20)
+	@apply pointer-events-auto inline-flex items-center justify-center
+	span
+		@apply text-blue-700
+
+.loading-overlay
+	&::before
+		content: ''
+		@apply z-[20]
+		@apply absolute inset-0 animate-pulse
+		@apply cursor-not-allowed bg-white/20 backdrop-blur-sm
+		@apply animate-pulse
+	.loading
+		background-image: url(/img/loading.svg)
+		@apply bg-no-repeat bg-center bg-contain
+		@apply absolute size-15 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+		@apply z-2 pointer-events-none
+	&.medium
+		.loading
+			@apply size-10
+
+.image-svg
+	img
+		@apply opacity-0
+	.img-generate
+		img
+			@apply opacity-100
+	svg
+		@apply w-full h-full
+	&.image-absolute
+		.svg-generate
+			@apply absolute inset-0 w-full h-full
+
+.expander
+	display: grid
+	grid-template-rows: 0fr
+	overflow: hidden
+	transition: grid-template-rows var(--duration,.3s)
+	.expander-content
+		min-height: 0
+		transition: visibility var(--duration,.3s)
+		visibility: hidden
+	// .active
+		// grid-template-rows: 1fr
+		// .expander-content
+		// 	visibility: visible
+
+.image-not-found
+	@apply text-xs text-red-600
+
+.play-btn
+	@apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-2
+	.icon
+		@apply transition-all top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-2
+		@apply absolute
+		@apply size-[50px]
+		@media (min-width: 768px)
+			@apply size-[60px]
+		@screen xl
+			@apply rem:size-[80px]
+		a
+			@apply overflow-visible
+		svg
+			@apply overflow-visible
+		rect
+			transform-origin: center
+			transform-box: fill-box
+			@apply transition-all
+			&:nth-of-type(1)
+				animation: ping 1.3s ease-in-out infinite both
+			&:nth-of-type(2)
+				animation: ping 1.3s .3s ease-in-out infinite both
+		// path
+		// 	animation: pathMove 1.3s ease-in-out infinite both
+		// 	@apply transition-all
+		// @keyframes pathMove
+		// 	0%
+		// 		stroke-dashoffset: var(--data-stroke-dasharray)
+		// 		stroke-dasharray: var(--data-stroke-dasharray)
+		// 	100%
+		// 		stroke-dasharray: 0
+		// 		stroke-dashoffset: var(--data-stroke-dasharray)
+		.pause
+			@apply hidden
+	&:hover
+		.icon
+			@apply scale-90
+			path
+				&:nth-of-type(1)
+					@apply fill-primary-3
+
+		// path
+		// 	@apply fill-primary-300
+
+[class*='ratio-']
+	@apply relative h-0 block overflow-hidden
+	img,iframe,video,.ratio-frame, picture
+		object-fit: cover
+		@apply absolute top-0 left-0 w-full h-full
+	&:not(.no-transition)
+		img,iframe,video,.ratio-frame, picture
+			@apply transition-all
+
+	&.ratio-contain
+		img,video,picture
+			@apply object-contain
+	&.ratio-visible
+		@apply overflow-visible
+	iframe
+		object-fit: none !important
+.swiper-slide-fullpage
+	[class*='ratio-']
+		img,iframe,video,.ratio-frame, picture
+			@apply transition-none duration-0 #{!important}
+
+[class*='line-clamp-']
+	@apply break-words
+
+img
+	&.lozad
+		@apply opacity-0
+		&[data-loaded]
+			@apply opacity-100
+
+[data-tabslet]
+	[class*='tabslet-content']
+		@apply hidden
+
+.overflow-auto,.overflow-scroll
+	overscroll-behavior: contain
+	transform: translate3d(0,0,0)
+	will-change: transform
+
+.toastify
+	@apply rounded-full
+	@apply py-2 px-3
+	&.toastify-center
+		@apply left-2 right-2
+	.toastify-content
+		@apply flex items-center gap-5
+	.toastify-icon
+		@apply size-6 bg-white rounded-full flex items-center justify-center
+		@apply flex-none
+		&::before
+			@apply font-Awesome6
+	.message
+		@apply flex-1
+	&.success
+		// background: theme('colors.primary.1')
+		background: #3cb85c
+		@apply text-white border-2 border-[#8ad99e]
+		.toastify-icon
+			&::before
+				content: '\f00c'
+				@apply text-[#3cb85c]
+	&.warning
+		background: #FFBF00
+		@apply text-white
+		.toastify-icon
+			&::before
+				content: '\f071'
+				@apply text-[#FFBF00]
+	&.error
+		background: theme('colors.red.500')
+		@apply text-white
+		.toastify-icon
+			&::before
+				content: '\f00d'
+				@apply text-red-500
+	&.info
+		background: theme('colors.blue.500')
+		@apply text-white
+		.toastify-icon
+			&::before
+				content: '\f05a'
+				@apply text-blue-500
+[tab-wrapper]
+	&:not(.tab-wrapper-initialized)
+		[tab-content]
+			@apply hidden
+			&:first-child
+				@apply block
+	&.tab-wrapper-initialized
+		[tab-content]
+			@apply hidden
+
+.clearfix
+	&::before,&::after
+		content: ''
+		clear: both
+		@apply block
+
+.animejs-onscroll-debug
+	@apply z-[200] #{!important}
+
+[setbackground]
+	&:not([style*='background'])
+		background: theme('colors.primary.1')
+
+.hover-a-link
+	a
+		@apply transition-all
+		&:hover
+			@apply text-primary-3
+
+.lil-gui.autoPlace
+	@apply top-[10vh]
+
+#fixed-tool
+	--gap: 0px
+	--icon-size: 36px
+	@apply bottom-24
+	@apply text-primary-1 right-0
+	@screen sm
+		--icon-size: clamp(48px,calc(48/1920*100rem),calc(48/1920*100rem))
+	@screen xl
+		--icon-size: calc(48/1920*100rem)
+	ul
+		@apply space-y-3
+	li
+		transform: translateX(calc(100% - var(--icon-size)))
+		@apply w-fit ml-auto rounded-l-1
+		@apply flex items-center gap-[var(--gap)]
+		@apply transition-all duration-300 pointer-events-auto
+		&:nth-of-type(even)
+			@apply bg-primary-2
+		&:nth-of-type(odd)
+			@apply bg-primary-4
+		&:hover
+			@apply translate-x-0
+			@apply text-white
+			// &:not(.scrollToTop)
+			// 	@apply pl-1
+
+		.icon
+			@apply size-[var(--icon-size)]
+			@apply flex items-center justify-center
+			@apply font-Awesome6 rounded-l-1 overflow-hidden
+			img
+				@apply size-full object-contain rounded-full
+				@apply p-2
+			i,em
+				@apply not-italic
+				@apply text-primary-5
+				&:not([class*='fa-'])
+					@apply rem:text-[20px]
+
+		.content
+			@apply pr-3 py-1 font-medium text-white
+			img
+				@apply size-8 object-contain p-1
+		&.scrollToTop
+			@apply pointer-events-none translate-y-4 opacity-0
+			@apply bg-Utility-200
+			.icon-wrapper
+				@apply size-[calc(var(--icon-size)-0.4166666667rem)]
+			.icon
+				img
+					@apply size-full absolute inset-0
+					@apply transition-all duration-300 p-1.5
+					&:nth-of-type(2)
+						@apply translate-y-full
+			&.active
+				@apply pointer-events-auto translate-y-0 opacity-100
+				&:hover
+					img
+						&:nth-of-type(1)
+							@apply -translate-y-full
+						&:nth-of-type(2)
+							@apply translate-y-0
+
+@screen xl
+	[data-fade]
+		@apply opacity-0
+
+.counter-number
+	@apply tabular-nums
+
+[data-split]
+	@apply grid base-gap
+	&[data-current-split="1"]
+		@apply grid-cols-1
+	&[data-current-split="2"]
+		@apply grid-cols-2
+	&[data-current-split="3"]
+		@apply grid-cols-3
+	&[data-current-split="4"]
+		@apply grid-cols-4
++max-width(xl)
+	.map-ratio
+		~ div
+			@apply hidden

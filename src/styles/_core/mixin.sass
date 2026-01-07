@@ -1,0 +1,56 @@
+@use "sass:map"
+
+$tailwind-screens: (xs: 380px,sm: 576px,md: 768px,lg: 1024px,xl: 1200px,	'1.5xl': 1366px,	'2xl': 1440px,	'3xl': 1600px)
+
+=max-width($breakpoint)
+	$value: map.get($tailwind-screens, $breakpoint)
+	@if $value
+		@media not all and (min-width: $value)
+			@content
+
+@function r($size)
+	@return calc($size/1920*100rem)
+=img-ratio($ratio,$fit:cover)
+	position: relative
+	display: block
+	height: 0
+	overflow: hidden
+	padding-top: $ratio *100%
+	img,iframe,video
+		position: absolute
+		width: 100%
+		height: 100%
+		top: 0
+		left: 0
+		object-fit: $fit
+		@apply transition-all
+=line($line)
+	overflow: hidden
+	display: -webkit-box
+	text-overflow: ellipsis
+	-webkit-line-clamp: $line
+	-webkit-box-orient: vertical
+=hover-underline($ratio, $color)
+	position: relative
+	transition: background-size .6s ease
+	background-image: linear-gradient(180deg,transparent $ratio, $color 0)
+	background-repeat: no-repeat
+	background-size: 0 100%
+	&:hover
+		background-size: 100% 100%
+=type-none
+	list-style-type: none
+	margin: 0
+	padding: 0
+@function setClamp($min,$max:null)
+	@if $max == null
+		@return clamp(#{$min}px,calc(#{$min}/1920*100rem),calc(#{$min}/1920*100rem))
+	@return clamp(#{$min}px,calc(#{$max}/1920*100rem),calc(#{$max}/1920*100rem))
+=scroll
+	&::-webkit-scrollbar
+		width: 5px
+		height: 5px
+	&::-webkit-scrollbar-track
+		@apply bg-neutral-100
+	&::-webkit-scrollbar-thumb
+		@apply bg-primary-3

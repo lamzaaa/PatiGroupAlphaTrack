@@ -1,0 +1,356 @@
+.arrow-button
+	@apply select-none
+	.button-prev
+		left: 0
+		@screen xl
+			@apply -left-25
+
+	.button-next
+		right: 0
+		@screen xl
+			@apply -right-25
+	&.in-edge-arrow
+		@screen xl
+			.button-prev
+				@apply left-0 -translate-x-1/2
+			.button-next
+				@apply right-0 translate-x-1/2
+
+	.button-prev
+		&::after
+			content: '\f053'
+	.button-next
+		&::after
+			content: '\f054'
+
+	&.arrow-dark
+		@screen xl
+			--data-width: #{r(64)}
+			--data-height: #{r(64)}
+		.button-prev,.button-next
+			@apply border-transparent
+			&::after
+				@apply xl:rem:text-3xl text-white font-light
+			&.swiper-button-disabled
+				@apply bg-black/20
+				&::after
+					@apply opacity-50
+			&:not(.swiper-button-disabled)
+				@apply bg-black/50
+				&::after
+					@apply text-white
+				&:hover
+					@apply bg-black/30
+	&.arrow-color-2
+		--data-width: 32px
+		--data-height: 32px
+		@screen sm
+			--data-width: #{r(48)}
+			--data-height: #{r(48)}
+		.button-prev,.button-next
+			&::after
+				@apply rem:text-[24px] text-neutral-500
+			&.swiper-button-disabled
+				@apply bg-white border-Utility-200 border
+				&::after
+					@apply text-Utility-200
+			&:not(.swiper-button-disabled)
+				@apply bg-primary-3
+				@apply border-primary-1 border
+				&::after
+					@apply text-primary-1 font-bold
+				&:hover
+					@apply bg-primary-1
+					&::after
+						@apply text-white
+
+	// &.arrow-color-3
+	// 	.button-prev,.button-next
+	// 		@apply border border-neutral-500
+	// 		&::after
+	// 			@apply rem:text-[24px] text-neutral-500
+	// 		&.swiper-button-disabled
+	// 			@apply bg-primary-1/50
+	// 		&:not(.swiper-button-disabled)
+	// 			@apply bg-primary-1 border-transparent
+	// 			&::after
+	// 				@apply text-white
+	// 			&:hover
+	// 				@apply bg-primary-1/70
+	&.arrow-2
+		.button-prev,.button-next
+			&::after
+				@apply text-[12px] sm:clamp:text-[16px] font-thin
+		.button-prev
+			&::after
+				content: '\f177'
+		.button-next
+			&::after
+				content: '\f178'
+	&.vertical-arrow
+		@apply absolute flex flex-col justify-between
+		@apply inset-0
+		.button-prev,.button-next
+			@apply translate-y-0 top-unset bottom-unset
+			@apply rotate-90 left-1/2 -translate-x-1/2
+		.button-prev
+			@apply top-0
+		.button-next
+			@apply bottom-0
+	&.clean-arrow
+		--data-width: #{setClamp(32)}
+		--data-height: #{setClamp(24)}
+		.button-prev
+			&::after
+				content: '\f060'
+		.button-next
+			&::after
+				content: '\f061'
+		.button-prev,.button-next
+			@apply bg-transparent
+
+			&::after
+				@apply font-thin text-primary-1
+			&:hover
+				@apply bg-transparent
+				@apply scale-110
+				&::after
+					@apply text-primary-1
+
+	&.inner-arrow
+		.button-prev
+			@apply xl:left-4
+		.button-next
+			@apply xl:right-4 left-unset
+	&.close-arrow
+		gap: var(--gap)
+		@apply flex items-center
+		.button-prev,.button-next
+			@apply static translate-y-0
+			+max-width(xl)
+				@apply mt-0 ml-0
+	&.contain-pagination
+		--data-width: #{setClamp(10)}
+		--data-height: #{setClamp(16)}
+		@apply flex items-center justify-center gap-3 mt-4
+		.swiper-pagination.swiper-pagination.swiper-pagination
+			@apply mx-0 gap-3
+			span
+				@apply border border-neutral-500 clamp:size-2
+				&.swiper-pagination-bullet-active
+					@apply bg-primary-1 border-primary-1
+		.button-prev,.button-next
+			@apply static bg-transparent rounded-none translate-y-0
+			@apply mt-0
+			&::after
+				@apply size-full clamp:text-[16px] leading-none
+			&:hover
+				@apply bg-transparent
+				&::after
+					@apply text-primary-1
+	.button-prev,.button-next
+		@apply top-1/2 -translate-y-1/2 m-0
+		@apply transition-all duration-300
+		@apply overflow-hidden
+		@apply z-3 absolute
+		@apply cursor-pointer
+		@apply bg-center bg-contain w-[var(--data-width)] h-[var(--data-height)]
+		@apply flex items-center justify-center bg-primary-1 rounded-full
+		&::after
+			@apply font-Awesome6 rem:text-[20px] font-light
+			@apply text-white
+		&:not(.swiper-button-disabled)
+			@apply pointer-events-auto
+		&.swiper-button-disabled
+			@apply opacity-30 pointer-events-none
+	.button-prev,.button-next
+		&:hover
+			@apply bg-primary-2
+			&::after
+				@apply text-white
+	+max-width(xl)
+		&:not(.vertical-arrow)
+			display: flex
+			justify-content: center
+			align-items: center
+			position: relative
+
+			.button-prev,.button-next
+				position: static
+				transform: translateY(0)
+			&:not(.close-arrow)
+				.button-prev,.button-next
+					margin-top: 24px
+				.button-next
+					margin-left: 8px
+	&.no-responsive
+		+max-width(xl)
+			display: contents
+			.button-prev,.button-next
+				position: absolute !important
+				margin: 0 !important
+				top: 50%
+				transform: translateY(-50%)
+			.button-prev
+				@apply px:left-3
+			.button-next
+				@apply px:right-3
+.swiper-column-auto
+	&[data-time='0']
+		.swiper-wrapper
+			transition-timing-function: linear
+	.swiper-slide.swiper-slide
+		@apply overflow-visible
+	.swiper-slide
+		width: calc(calc(100% - calc(var(--mr) * calc(var(--spv) - 1)))/var(--spv))
+		@apply h-auto
+		&:not(:last-child)
+			margin-right: var(--mr)
+	// [dir="rtl"]
+	// 	.swiper-slide
+	// 		@apply mr-0 sm:mr-0 md:mr-0 xl:mr-0
+	// 		@apply ml-3 sm:ml-4 md:ml-6 xl:ml-10
+	// 		&:last-child
+	// 			@apply ml-0
+	&.small-gap
+		--mr: #{r(10)}
+	&.medium-gap
+		--mr: #{r(24)}
+	&.auto-2-column
+		@screen md
+			--spv: 2
+	&.auto-3-column
+		@screen md
+			--spv: 2
+		@screen lg
+			--spv: 3
+		// &.auto-3-column-wide
+		// 	.swiper-slide
+		// 		@screen xl
+		// 			width: calc((100vw - clamp(55px,calc(55/1920*100rem),calc(55/1920*100rem))*2 - clamp(32px,calc(32/1920*100rem),calc(32/1920*100rem))*2)/3)
+
+	&.auto-4-column
+		@screen sm
+			--spv: 2
+		@screen md
+			--spv: 3
+		@screen xl
+			--spv: 4
+	&.auto-5-column
+		--spv: 1
+		@screen sm
+			--spv: 2
+		@screen md
+			--spv: 3
+		@screen lg
+			--spv: 4
+		@screen xl
+			--spv: 5
+
+	&.show-half-mobile
+		+max-width(sm)
+			--spv: 1.5
+	&.show-two-mobile
+		+max-width(sm)
+			--spv: 2
+
+	.swiper-scrollbar.swiper-scrollbar
+		@apply static
+		@apply bg-white/50 rounded-1 w-full
+		@apply px:h-1
+		.swiper-scrollbar-drag
+			@apply bg-primary-2 rounded-[inherit]
+			@apply h-full cursor-pointer
+		.swiper-scrollbar-drag
+			&:hover
+				@apply py-2 -my-2
+		&.on-draging-scrollbar
+			.swiper-scrollbar-drag
+				@apply py-2 -my-2
+
+	.swiper-scrollbar-helper
+		@apply flex items-center gap-3
+		@apply mt-10
+		.helper-icon
+			@apply w-[90px] xl:rem:w-[144px]
+			@apply pointer-events-none
+	&.arrow-edge
+		.arrow-button
+			.button-prev
+				@apply left-0
+			.button-next
+				@apply right-0
+.visible-slide
+	.swiper
+		@apply overflow-visible
+.allow-touchMove
+	.swiper-slide
+		@apply cursor-grab
+
+.swiper-pagination
+	--pgn-mt: #{r(24)}
+.swiper-pagination.swiper-pagination.swiper-pagination
+	@apply static
+	@apply flex justify-center w-fit mx-auto rounded-1 gap-2
+	@apply items-center p-0 mt-[var(--pgn-mt)]
+	&.swiper-pagination-lock
+		@apply p-0
+	span
+		@apply mx-0 opacity-100
+		@apply size-2 rounded-full
+		@apply transition-all duration-500
+		@apply block
+		@apply relative border border-transparent
+		// @apply bg-primary-bg5/20
+		@apply bg-primary-1/20
+		&.swiper-pagination-bullet-active
+			@apply opacity-100
+			@apply bg-white
+	&.swiper-pagination-white
+		--size: #{r(8)}
+		@apply gap-3
+		@apply h-[var(--size)]
+		span
+			@apply bg-white/80 opacity-100 size-[var(--size)]
+			&.swiper-pagination-bullet-active
+				@apply bg-white size-[var(--size)]
+
+.swiper-column-1,.swiper-column-2,.swiper-xl-3,.swiper-xl-4
+	.swiper-slide
+		@apply h-auto
+
+.swiper-center
+	.swiper-wrapper
+		@apply w-fit mx-auto
+
+.swiper-shadow-spacing
+	@screen xl
+		.swiper
+			padding: r(32)
+			margin: r(-32)
+
+.swiper
+	&.swiper-fade
+		.swiper-slide
+			opacity: 0 !important
+		.swiper-slide-active
+			opacity: 1 !important
+
+.dynamic-slide.swiper-slide
+	// width: var(--dsw)
+	width: calc(calc(100% - calc(var(--mr) * calc(var(--spv) - 1)))/var(--spv))
+	@apply h-auto
+	&:not(:last-child)
+		margin-right: var(--mr)
+
+// .swiper-tool
+// 	.count
+// 		span
+// 			& + span
+// 				@apply flex items-center gap-4
+// 				&::before
+// 					content: '/'
+// 			&.total
+// 				@apply text-neutral-950
+// 				&::before
+// 					@apply text-neutral-500

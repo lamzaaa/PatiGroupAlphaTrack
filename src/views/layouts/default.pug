@@ -1,0 +1,56 @@
+block vars
+block mixins
+	include ../blocks/mixins.pug
+
+doctype html
+html(lang="en")
+	meta(charset="UTF-8")
+	meta(name="viewport" content="width=device-width, initial-scale=1.0")
+	meta(http-equiv="X-UA-Compatible" content="ie=edge")
+
+	// CDN
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+	<link rel="icon" type="image/x-icon" href="/img/favicon.png">
+
+
+
+	// Styles	
+	link(rel="stylesheet" href="/src/styles/main.sass")
+	link(rel="stylesheet" href="/src/styles/global.sass")
+	//- link(rel="stylesheet" href="/src/styles/fontawesome.min.css")
+
+	body(class=bodyClass)
+		.hidden
+			.button-arrow-icon
+				<svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M-2.18559e-07 5.99995L14 6M14 6L9 11M14 6L9 1" stroke="#237243"/></svg>
+				<svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M-2.18559e-07 5.99995L14 6M14 6L9 11M14 6L9 1" stroke="white" stroke-width="2"/></svg>
+		block header
+			include ../global/Header/header
+		main
+			block main
+		block footer
+			include ../global/Footer/footer
+		#fixed-tool(class="fixed z-[100] right-0 pointer-events-none")
+			ul
+				li(class="relative scrollToTop cursor-pointer")
+					.icon
+						<i class="fa-regular fa-arrow-up"></i>
+				li(class="relative cursor-pointer")
+					.icon
+						+img({src:'/img/icon/phone.svg'})
+					.content
+						a(href="tel:+842723935859") +84 272 3935 859
+				li(class="relative")
+					.icon
+						+img({src:'/img/icon/messenger.svg'})
+
+		// Keep footer wrapper as a target for sticky element
+
+		.container-fluid
+			.wide-container
+		.container
+			.normal-container
+		#overlay
+		script(type="module" src="/src/scripts/main-script.js") 

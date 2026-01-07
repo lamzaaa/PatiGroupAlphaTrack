@@ -1,0 +1,144 @@
+section.productdetail-1(class="py-8")
+    -let images = ["https://trysculptique.com/cdn/shop/files/LymphDrainageREWAMPEDvisualsArtboard2.jpg?v=1760103684","https://trysculptique.com/cdn/shop/files/LymphDrainageREWAMPEDvisualsArtboard3copy.jpg?v=1760103684"];
+    -let images2 = ["https://trysculptique.com/cdn/shop/files/LymphDrainageREWAMPEDvisualsArtboard4.jpg?v=1760103685","https://trysculptique.com/cdn/shop/files/LymphDrainageREWAMPEDvisualsArtboard5_1.jpg?v=1760103685","https://trysculptique.com/cdn/shop/files/LymphDrainageREWAMPEDvisualsArtboard5_2.jpg?v=1760103685"];
+    -let images3 = ["https://trysculptique.com/cdn/shop/files/tiredness-min.png?v=1758713216","https://trysculptique.com/cdn/shop/files/puffiness-min.png?v=1758713216"];
+    -let features = [{ image:"https://trysculptique.com/cdn/shop/files/population_12285628_1_e864791e-7a6d-4f08-9aea-3aeffba37cc7.png?v=1758713413" ,content: "Join over 93 Thousand who say - it WORKS!"}, { image:"https://trysculptique.com/cdn/shop/files/blood_13858030_1.png?v=1752064910" ,content: "Restores your body’s natural 24-hour lymphatic cycle"}, { image:"https://trysculptique.com/cdn/shop/files/thigh_1431039_1_a75a1917-7cc8-40dc-923b-d09cece1d6e9.png?v=1758713413" ,content: "Helps reduce fluid retention and the appearance of puffiness and bloating"}, { image:"https://trysculptique.com/cdn/shop/files/smile_3318262_1_1da99ae9-5c63-4339-af75-d35f89cd1cbc.png?v=1758713414" ,content: "Helps fall asleep faster, stay asleep longer and wake up energized"}, { image:"https://trysculptique.com/cdn/shop/files/blood_13858030_2_78da9178-9f3f-491e-a5f8-b4d69dd5b9cd.png?v=1758713414" ,content: "Eliminates joint stiffness, pain, morning creakiness and feel more grounded"}, { image:"https://trysculptique.com/cdn/shop/files/ecology_18588873_1_dad420da-2490-4e30-828a-28b366974307.png?v=1758713413" ,content: "Boosts energy, mental clarity and emotional balance"}];
+
+    .container
+        .grid(class="base-gap md:gap-16 grid-cols-2")
+            .col-left(class="[&_img]:rounded-2")
+                .desktop-view(class="lg:block hidden")
+                    .main-img.relative
+                        .img
+                            +img({src:'https://trysculptique.com/cdn/shop/files/LymoPDPImagesArtboard1_8e287aa1-576e-42b1-9a87-ce2fcdaded3a.jpg?v=1760103674',className:'ratio-[1/1]'})
+                        .badge(class="absolute top-4 right-4")
+                            .badge-img(class="w-30")
+                                +img({src:'https://cdn.shopify.com/s/files/1/0917/5649/5191/files/nysale.png?v=1766822224',className:'ratio-[1/1]'})
+                        .button(class="absolute bottom-8 left-1/2 -translate-x-1/2")
+                            +btn-primary({title:'Nutritional Information',iconString:'<img src="https://cdn.shopify.com/s/files/1/0917/5649/5191/files/leaves_1247958_1_cf2e7df4-c113-4c3a-be49-f876ec94d873.png?v=1766822629"/>'})
+
+                    div(class="grid grid-cols-2 gap-4 mt-4")
+                        -for(i=0;i<images.length;i++)
+                            .img
+                                +img({src:`${images[i]}}`,className:'ratio-[1/1]'})
+                    div(class="grid grid-cols-3 gap-4 my-6")
+                        -for(i=0;i<images2.length;i++)
+                            .img
+                                +img({src:`${images2[i]}}`,className:'ratio-[1/1]'})
+                    div(class="grid grid-cols-2 gap-4 my-6")
+                        
+                        -for(i=0;i<images3.length;i++)
+                            .img
+                                +img({src:`${images3[i]}}`})
+                .mobile-view(class="lg:hidden")
+            .col-right(class="space-y-4")
+                .product-reviews(class="flex items-center gap-4")
+                    .rate
+                        .img(class="w-25")
+                            +img({src:"https://cdn.shopify.com/s/files/1/0917/5649/5191/files/Frame_229.png?v=1752064359",className:'ratio-[18/100]'})
+                    .info
+                        p 4.8/5 Excellent | Based on 2381 Reviews
+                .product-title(class="heading-28 font-heading")
+                    p New Maximum Potency Formula - Lymphatic Drainage Capsules by Sculptique™
+                .product-features(class="space-y-4")
+                    -for(i=0;i<features.length;i++)
+                        .feature-item(class="flex items-center gap-3")
+                            .img(class="w-13 flex-none")
+                                +img({src:`${features[i].image}`,className:'ratio-[1/1] ratio-contain'})
+                            .content(class="flex-1")
+                                p= features[i].content
+                    div(class="w-full")
+                        <style>#frontrow-sticker{max-width:437px;height:78px;left:0;transition:width .3s ease-in-out;overflow:hidden;width:100%;}@media (min-width:769px){#frontrow-sticker{top:20px}}@media (max-width:768px){#frontrow-sticker{top:20px}}</style>
+                        <iframe data-state="max" class="iframe-frontrow-sticker" id="frontrow-sticker" frameborder="0" src="https://app.thefrontrowhealth.com/api/widgets?presentation_type=sticker&amp;product_id=2691"></iframe>
+                        <script>const iframe=document.getElementById("frontrow-sticker");window.addEventListener("message",(e=>{e.origin.includes("thefrontrowhealth.com")&&("STICKER_REQUEST_READY_STATUS"===e.data.name&&iframe.contentWindow.postMessage({name:"PARENT_READY"},"*"),"RESIZE_STICKER"===e.data.name&&iframe.contentWindow.postMessage({name:"STICKER_RESIZED"},"*"))}));</script>
+                div(tab-wrapper="parent")
+                    -let options =[{title: '1 Bottle',content: '1 bottle total | Save $27.99',prices: ['$31.96', '$59.95'],perks: [ { icon:'https://trysculptique.com/cdn/shop/files/delivery-truck_181581.png?v=1749555916', content:'Free USA Shipping'} ], isNewYearSale: false},{title: 'Buy 2 Get 1 Free',content: '3 bottles total | Save $115.93',prices: ['$63.92', '$179.85'],perks: [ { icon:'https://trysculptique.com/cdn/shop/files/delivery-truck_181581.png?v=1749555916', content:'Free USA Shipping'}, { icon:'https://trysculptique.com/cdn/shop/files/download_5307610.png?v=1749555943', content:'Free Anti-Bloating Protocol E-book'} ], isNewYearSale: true},{title: 'Buy 3 Get 2 Free',content: '5 bottles total | Save $203.87',prices: ['$95.88', '$299.75'],perks: [ { icon:'https://trysculptique.com/cdn/shop/files/delivery-truck_181581.png?v=1749555916', content:'Free USA Shipping'}, { icon:'https://trysculptique.com/cdn/shop/files/download_5307610.png?v=1749555943', content:'Free Anti-Bloating Protocol E-book'}, { icon:'https://trysculptique.com/cdn/shop/files/Kaching-Bundles-Kaching-Bundles-Kaching-Bundles-gift-card_18054896_300x300_300x300_72117561-797d-4e48-9491-3bc1748ce974.png?v=1749556309', content:'$20 Gift Card'} ], isNewYearSale: false},];
+                    - let atc = ["Refills Ship Monthly","Refills Ship Bi-Monthly","Refills Ship Every 12 Week"]
+                    .product-selector-content(class="bg-primary-2 rounded-2 p-3 pb-6 space-y-3")
+                        -for(i=0;i<options.length;i++)
+                            -let isNewYearSale = options[i].isNewYearSale;
+                            .option(class=`border-primary-1 border bg-white rounded-3 relative cursor-pointer ${i===1 ? 'active':''}` tab-item="parent" tab-item-value=i)
+                                -if(isNewYearSale)
+                                    .badge(class="absolute rem:w-[77px] -right-2 -top-5")
+                                        +img({src:'./img/sale.svg',className:'ratio-[37/77]'})
+                                .option-head(class="flex items-center p-4 gap-3 leading-snug")
+                                    .circle(class="w-6 relative border-2 border-primary-1 aspect-square rounded-full ")
+                                        .circle-inner(class="absolute inset-[3px] rounded-full bg-primary-1 opacity-0 transition-all")
+                                    .info(class="flex-1")
+                                        .title(class="font-semibold")=options[i].title
+                                        .info(class="text-xs")=options[i].content
+                                    .price(class="text-right")
+                                        .price(class="font-semibold")=options[i].prices[0]
+                                        .old-price(class="line-through text-black/75 text-sm")=options[i].prices[1]
+                                .option-perks(class="bg-primary-1 opacity-60 rounded-b-[inherit] [&>*+*]:border-t [&_*+*]:border-white text-white text-xs font-bold transition-all")
+                                    -for(j=0;j<options[i].perks.length;j++)
+                                        .perk(class="flex items-center gap-3 py-1 px-2")
+                                            - let icon = options[i].perks[j].icon;
+                                            - let iconContent = options[i].perks[j].content;
+                                            .icon(class="w-8")
+                                                +img({src:`${icon}`,className:'ratio-[1/1] ratio-contain'})
+                                            span=iconContent
+                    .delivered-notification(class="flex items-center gap-2 mt-4")
+                        .img(class="w-8 flex-none")
+                            +img({src:'./img/truck.svg',className:'ratio-[1/1] ratio-contain'})
+                        .content
+                            p Delivered on 
+                                time(class="bg-primary-1 rounded-2 text-white py-1 px-2") Monday, 12 January
+                                |  with Express Shipping
+                    .add-to-cart(class="bg-black text-lg clamp:min-h-[56px] text-white text-center font-bold flex items-center justify-center rounded-3 mt-3 transition-all hover:bg-black/80") ADD TO CART
+                    .product-atc(class="flex mt-4 justify-center")
+                        .atc-group-1(class="border-r border-black mr-4 pr-4")
+                            .wrapper(class="flex items-center gap-2")
+                                .img(class="w-5 flex-none")
+                                    +img({src:'./img/reload.svg','className':'ratio-[1/1] ratio-contain'})
+                                .atc-items
+                                    -for(i=0;i<atc.length;i++)
+                                        .atc-item(tab-content="parent" tab-content-value=i)
+                                            p=atc[i]
+                        .atc-group-2
+                            .wrapper(class="flex items-center gap-2")
+                                .img(class="w-5 flex-none")
+                                    +img({src:'./img/clock.webp','className':'ratio-[1/1] ratio-contain'})
+                                .atc-items
+                                    .atc-item
+                                        p Stop or Cancel Anytime
+                .payment-method
+                    .img
+                        +img({src:'https://cdn.shopify.com/s/files/1/0917/5649/5191/files/Frame_1000003454.png?v=1752066654'})
+                .banner
+                    .img
+                        +img({src:'//trysculptique.com/cdn/shop/files/CTA_Button_Add_To_Cart_8b5e7dd2-d716-4b24-a339-d8f27d86e61a.png?v=1766758486',className:'[&_img]:w-full',lazy:false})
+                -var notices =[ { image: 'https://cdn.shopify.com/s/files/1/0917/5649/5191/files/60-days_11622780_1.png?v=1752066864', content: '60-Day Money-Back Guarantee'}, { image: 'https://cdn.shopify.com/s/files/1/0917/5649/5191/files/Frame_1000003293.png?v=1752066864', content: 'Free Shipping From USA Included'}];
+                .notices(class="space-y-3")
+                    -for(i=0;i<notices.length;i++)
+                        .note(class="flex items-center gap-2")
+                            .img(class="w-8 flex-none")
+                                +img({src:`${notices[i].image}`,className:'ratio-[1/1] ratio-contain'})
+                            .content=notices[i].content
+                -let customerReviews = [ { image: 'https://trysculptique.com/cdn/shop/files/AI_Nurse_Holding_TORC_2_efcbd677-7242-4cb2-9f99-ad1e3726b19b.png?v=1752500889', name: 'Margaret Ellison | FL', content: "<p><strong>Even my husband noticed... the spark came back. </strong></p><p>After years of hiding under coverups, picking apart my body, and feeling disconnected, I finally feel at ease again. I feel less bloated, lighter, like my body is working with me not against me. These past months, I’ve been present. Even my marriage feels renewed, not just in how I look but in how I feel. It’s hard to explain, but once you try it you’ll get it. I’d recommend this to my closest friends without question.</p>"}];
+                .customer-reviews
+                    -for(i=0;i<customerReviews.length;i++)
+                        .customer-item(class="bg-primary-2 p-3 rounded-3")
+                            .ctm-top(class="flex items-center gap-4")
+                                .avatar(class="w-18 flex-none")
+                                    +img({src:`${customerReviews[i].image}`,className:'ratio-[1/1] rounded-full'})
+                                .info(class="space-y-2")
+                                    .info-top(class="flex items-center gap-3")
+                                        .name(class="flex-1")=customerReviews[i].name
+                                        .verified(class="w-30 flex-none")
+                                            +img({src:'https://cdn.shopify.com/s/files/1/0917/5649/5191/files/Frame_7966.png?v=1752068267', className:'ratio-[19/120]'})
+                                    .rate(class="w-25")
+                                        +img({src:'https://cdn.shopify.com/s/files/1/0917/5649/5191/files/stars-4.5_1.png?v=1752068267',className:'ratio-[18/100]'})
+                            .ctm-content.mt-4(class="tracking-normal")
+                                .description(class="[&_*+*]:mt-2")!=customerReviews[i].content
+
+                .module-toggle
+                    -for(i=0;i<3;i++)
+                        .item
+                            .top
+                                .title Ingredients proven by science
+                                .icon
+                            .bottom
+                                .content 
+                                        <p><strong>Sculptique Ingredients:</strong></p><ul><li><strong>Echinacea purpurea Extract</strong> – Known for its anti-inflammatory properties, it may support skin health.</li><li><strong>Dandelion Extract</strong> – Traditionally used as a diuretic, it may help reduce water retention.<br><strong>Burdock Powder</strong> – Contains antioxidants that may promote skin clarity.</li><li><strong>Cleavers Extract</strong> – Believed to support lymphatic drainage and detoxification.</li><li><strong>Rutin</strong> – A flavonoid that may strengthen blood vessels and improve circulation.</li><li><strong>Bromelain Powder</strong> – An enzyme from pineapple that may reduce inflammation and support tissue repair.</li><li><strong>Lemon Powder</strong> – Rich in vitamin C, it may aid in collagen production and skin rejuvenation.</li><li><strong>Kelp Extract</strong> – A source of iodine and minerals that may support skin metabolism.</li></ul><p>These natural ingredients work together to reduce puffiness, bloating, fluid retention.</p>
+

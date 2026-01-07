@@ -1,0 +1,52 @@
+footer(class="bg-primary-1 text-white")
+    .container
+        .top(class="flex items-center sm:items-end justify-between base-gap pt-10 gap-y-3 max-sm:flex-col")
+            .logo
+                +img({src:'/img/logo-white.webp',className:'ratio-[77/173]'})
+            .socials(class="flex items-center gap-2")
+                -for(i=0;i<4;i++)
+                    a.social-icon
+                        <i class="fa-brands fa-facebook-f"></i>
+        .middle(class="mt-6 pt-6 border-t border-primary-2 pb-20")
+            .grid(class="sm:grid-cols-2 lg:grid-cols-4 base-gap")
+                .column-1
+                    .ft-title Head Office
+                    .description
+                        p Lot C2, Duong Doc 2, Phu An Thanh Industrial Park, Ben Luc Commune, Tay Ninh Province, Vietnam
+                        p Tel: +84 272 3935 959
+                        p Email: info@mdg-vn.com
+                        p Maps: https://maps.app.goo.gl/XZGwgHwFyaQSnFE58
+                .column-2
+                    .ft-title Representative Office
+                    .description
+                        p AIG Tower, Lot TH-1B, Street No. 7, Nam Commercial Area, Tan Thuan Export Processing Zone, Tan Thuan Ward, Ho Chi Minh City, Vietnam
+                        p Maps: https://maps.app.goo.gl/YfcBPUFtTboKguEL6 
+                .column-3
+                    .ft-title Quick links
+                    ul.menu
+                        li
+                            a About us
+                        li
+                            a Product
+                        li
+                            a News
+                        li
+                            a Career
+                        li
+                            a Contact us
+                .column-4
+                    .ft-title Sign up for newsletter
+                    .wrap-form
+                        .form-group
+                            input(placeholder='Email')
+                        .form-submit
+                            +btn-primary({title:'Send',className:'btn-primary-2 !font-normal'})
+    .bottom(class="bg-primary-2 xl:min-h-15 max-xl:py-2 flex items-center")
+        .container.w-full
+            .flex(class="justify-between gap-x-6 gap-y-1 max-md:flex-col items-center max-md:text-center")
+                .copyright © 2025 MDG. All Rights Reserved. Website designed by CanhCam
+                ul.menu
+                    li
+                        a Sitemap
+                    li
+                        a Policy

@@ -1,0 +1,239 @@
+mixin wp-pagination(page=3)
+	.wp-pagination
+		ul
+			li.btn.prev-page
+				a Trang trước
+			-for(i=1;i<=page;i++)
+				if i == 1
+					li.active
+						a #{i}
+				else
+					li
+						a #{i}
+			li.btn.next-page
+				a Trang kế
+mixin img({src,className,classNameImg,href,lazy=true})
+	-var src = src || 'https://picsum.photos/1600/900';
+	- var tag = href ? 'a' : 'span';
+	#{tag}(class=className,href=href)
+		if(src)
+			if(lazy)
+				img.lozad(data-src=src class=classNameImg)
+			else
+				img(src=src class=classNameImg)
+mixin normal-img(url="https://picsum.photos/1600/900",className,classNameImg,href)
+	if(!url)
+		- url = 'https://picsum.photos/1600/900';
+	a(class=className,href=href)
+		img(src=url class=classNameImg)
+mixin span-img({src="https://picsum.photos/1600/900",className,classNameImg})
+	if(!src)
+		- src = 'https://picsum.photos/1600/900';
+	span(class=className)
+		img.lozad(data-src=src class=classNameImg)
+
+mixin only-img({src="https://picsum.photos/1600/900",className,lazy=true})
+	if(!src)
+		- src = 'https://picsum.photos/1600/900';
+	if(lazy)
+		img.lozad(data-src=src class=className)
+	else
+		img(src=src class=className)
+mixin btn-primary({title,className="",iconString='<i class="fa-regular fa-arrow-right"></i>',iconPosition='left'})
+	- className += ' btn-primary '
+	- className = className
+	- title = title || 'Xem thêm'
+	a.btn(class=className)
+		if(iconPosition === 'left')
+			!=unescape(iconString)
+			!=unescape(title)
+		else
+			!=unescape(title)
+			if(iconString)
+				!=unescape(iconString)
+		//- !=unescape(title)
+		//- if(!iconString)
+		//- 	+btn-arrow-default
+		//- else
+		//- 	!=unescape(iconString)
+		//- if(iconString)
+		//- 	!=unescape(iconString)
+		block
+
+mixin play-btn
+	.play-btn
+		.icon(class="absolute inset-0")
+			+img({src:"/img/play.svg",className:'ratio-[1/1]'})
+
+mixin loading(size)
+	.loading-overlay(class=`${size}`)
+		.loading
+
+
+mixin swiper({column,swiperClass,autoPlay=false,navigation=true,pagination=false,scrollbar=false,allowTouchMove=true,arrowClass,slidesLength=12,swiperWrapperClass,autoAlign=false})
+	-var column = column || 3;
+	div(class=`swiper-column-auto relative ${column ? `auto-${column}-column` : ''} ${swiperClass} ${autoPlay ? 'auto-play' : ''} ${allowTouchMove ? 'allow-touchMove' : ''}`)
+		.swiper(class=swiperWrapperClass)
+			.swiper-wrapper
+				-for(t=0;t<slidesLength;t++)
+					.swiper-slide(class=`${t===3 ? 'current-menu-item' : ''}`)
+						block
+		- if(navigation)
+			.arrow-button(class=arrowClass)
+				.button-prev
+				.button-next
+
+		- if(pagination)
+			.swiper-pagination
+		- if(scrollbar)
+			.swiper-scrollbar
+
+mixin bn-small
+	.bn-small.zoom-img.relative(class="grid grid-cols-[calc(263/680*100%)_1fr] base-gap")
+		.img
+			+img({className:"ratio-[161/319] rounded-3"})
+		.content
+			time(class="text-neutral-800 opacity-50") 16.05.2025
+			.title(class="mt-5 xl:body-18 font-medium text-neutral-800")
+				a(class="line-clamp-2 sm:line-clamp-4") Một chương mới huy hoàng sắp được viết nên, tôn vinh những chủ nhân am tường giá trị độc bản và dẫn đầu xu hướng. 
+mixin bn-big
+	.bn-big(class="zoom-img")
+		.img
+			+img({className:"ratio-[340/680] rounded-4"})
+		.content(class="space-y-3 sm:space-y-6 lg:space-y-10 mt-3 sm:mt-6 lg:mt-10")
+			time.block(class="text-neutral-800 opacity-50") 16.05.2025
+			.title(class="body-18 md:subheader-20 xl:subheader-24 font-medium")
+				a(class="line-clamp-4") Một chương mới huy hoàng sắp được viết nên, tôn vinh những chủ nhân am tường giá trị độc bản và dẫn đầu xu hướng. 
+
+mixin time
+	time.block(class="px:size-10 sm:size-14 md:size-16 text-white text-center flex items-center flex-col justify-center bg-primary-1 gap-1")
+		span.date(class="label-12 sm:body-16 md:subheader-20 font-extrabold") 20
+		span.rest(class="text-[8px] sm:body-10px lg:label-12 font-bold") 06.2024
+
+mixin bn-horizontal
+	.zoom-img.bn-horizontal(class="flex md:flex-row flex-col")
+		.img.w-full
+			+img({className:'ratio-[613/920] h-full'})
+		.content.w-full.flex-1(class="bg-neutral-50 prevent-spacing flex items-center justify-center py-8 px-5 lg:p-10")
+			.wrapper(class="w-full")
+				+time
+				.title(class="sm:subheader-24 font-bold mt-10")
+					a(class="line-clamp-2") Lễ ra mắt liên doanh TTCapital – Cosmos Initia – Koterasu
+				.ctn(class="text-neutral-400 mt-3")
+					span(class="line-clamp-[7]") Lễ ra mắt liên doanh TTCapital – Cosmos Initia – Koterasu cùng thực hiện các dự án bất động sản vừa túi tiền khu vực TPHCM và vùng phụ cận
+
+mixin bn-1
+	.zoom-img.bn-1(class=attributes.class)
+		.img.relative
+			+img({className:'ratio-[187/332] rounded-3 bg-neutral-50'})
+		.content(class="py-5 lg:p-5")
+			.top-info(class="flex items-center gap-2 body-3")
+				time(class="text-Utility-500") August 25, 2025
+				.category(class="text-secondary-1 transition-all hover:text-primary-1") Hoạt động Kiwifood
+			.bottom-info(class="mt-4 pt-4 border-t border-Utility-200")
+				.title(class="text-lg lg:heading-3 font-bold text-primary-2")
+					a(class="line-clamp-2") Xu hướng tiêu dùng trái cây đông lạnh toàn cầu và cơ hội cho Việt Nam
+				.ctn(class="line-clamp-3 text-Utility-800 mt-2") Kiwifood Hoàng Lê mang đến cho Khách Hàng sản phẩm nguyên liệu với tính năng và giá cả phù hợp, thu mua từ các nhà máy đạt tiêu chuẩn trên toàn thế giới, chất lượng đảm bảo, sẵn sàng hỗ trợ công nghệ và kiến thức sản phẩm, hàng hóa có sẵn.
+
+mixin bn-2
+	.zoom-img.bm-2(class="grid grid-cols-[calc(299/680*100%)_1fr]")
+		.img.relative
+			+img({className:'ratio-[187/332] rounded-3 bg-neutral-50 h-full'})
+		.content(class="px-5")
+			.top-info(class="flex items-center gap-2 body-3")
+				time(class="text-Utility-500") August 25, 2025
+				.category(class="text-secondary-1 transition-all hover:text-primary-1") Hoạt động Kiwifood
+			.bottom-info(class="mt-4 pt-4 border-t border-Utility-200")
+				.title(class="text-lg lg:heading-3 font-bold text-primary-2")
+					a(class="line-clamp-2") Xu hướng tiêu dùng trái cây đông lạnh toàn cầu và cơ hội cho Việt Nam
+				.ctn(class="line-clamp-2 text-Utility-800 mt-2") Kiwifood Hoàng Lê mang đến cho Khách Hàng sản phẩm nguyên liệu với tính năng và giá cả phù hợp, thu mua từ các nhà máy đạt tiêu chuẩn trên toàn thế giới, chất lượng đảm bảo, sẵn sàng hỗ trợ công nghệ và kiến thức sản phẩm, hàng hóa có sẵn.
+
+mixin bn-other
+	.zoom-img.bn-other(class="grid grid-cols-[calc(153/440*100%)_1fr]")
+		.img.relative
+			+img({className:'ratio-[86/153] rounded-3 bg-neutral-50 h-full'})
+		.content(class="px-5")
+			.top-info(class="flex items-center gap-2 body-3")
+				time(class="text-Utility-500") August 25, 2025
+				.category(class="text-secondary-1 transition-all hover:text-primary-1") Hoạt động Kiwifood
+			.bottom-info(class="mt-2 pt-2 border-t border-Utility-200")
+				.title(class="heading-5 font-bold text-primary-2")
+					a(class="line-clamp-2") Xu hướng tiêu dùng trái cây đông lạnh toàn cầu và cơ hội cho Việt Nam
+
+
+mixin layout-support
+	.layout-support.section(class="bg-primary-bg")
+		.container
+			.block-title.text-center Chính sách bán hàng
+			block content
+
+
+mixin faqs-content
+	.faqs-content(class="module-toggle rem:mt-8")
+		.list(class="space-y-4")
+			-for(l=0;l<9;l++)
+				.item(class="group bg-white rounded-4")
+					.top(class="transition-all group-[.active]:border-primary-2 cursor-pointer px-6")
+						.wrapper(class="flex justify-between clamp:gap-[8px] border-b border-b-transparent group-[.active]:border-primary-2 py-6 items-center")
+							.id(class="size-8 body-18 sm:subheader-24 font-medium transition-all group-[.active]:text-primary-2 flex items-center justify-center font-heading") 0#{l+1}
+							.title(class="body-18 sm:subheader-24 font-bold transition-all group-[.active]:text-primary-2 flex-1 font-heading") Sản phẩm chính hãng hay không?
+							.icon <i class="fa-solid fa-chevron-down subheader-20 transition-all group-[.active]:rotate-180 group-[.active]:text-primary-2"></i>
+					.bottom.hidden(class="p-6 pt-0")
+						.description.prose(class="sm:body-18 mt-3") 
+							ul
+								li Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis dolore soluta aliquam nobis officiis, tenetur veritatis dicta error impedit quibusdam dolor harum sint enim, voluptatum animi quae saepe, ullam similique.
+								li Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis dolore soluta aliquam nobis officiis, tenetur veritatis dicta error impedit quibusdam dolor harum sint enim, voluptatum animi quae saepe, ullam similique.
+							p Lorem ipsum dolor sit amet consectetur adipisicing elit. Et similique, debitis, id at dolorem ex, ducimus praesentium eum repudiandae maxime incidunt. Architecto nesciunt tenetur maiores nihil fugiat deleniti sint dolores!
+							p Lorem ipsum dolor sit amet consectetur adipisicing elit. Et similique, debitis, id at dolorem ex, ducimus praesentium eum repudiandae maxime incidunt. Architecto nesciunt tenetur maiores nihil fugiat deleniti sint dolores!
+
+mixin default-dropdown
+	.dropdown
+		ul
+			li
+				a Định nghĩa
+			li
+				a Thông tin cần biết
+			li
+				a Quyền và nghĩa vụ
+			li
+				a Qui định
+
+mixin normal-dropdown
+	.dropdown
+		ul
+			li
+				a Traditional Products 
+			li
+				a Extra Products
+
+mixin bpd-category
+	.bpd-category(class="rounded-3 overflow-hidden zoom-img")
+		.img
+			+img({className:'ratio-[383/680] bg-neutral-50'})
+		.content
+			+btn-primary({title:'Traditional Products'})
+			
+mixin sticky-nav(attributes)
+	.sticky-nav(class=attributes.class)
+		.container
+			nav
+				ul(class="flex items-center whitespace-nowrap overflow-auto")
+					-var titles = ['Initializing...'];
+					-for(i=0;i<titles.length;i++)
+						li
+							a(href=`#section-${i+1}`) #{titles[i]}
+
+
+mixin bpd-1
+	.bpd-1(class="flex flex-col h-full p-3 sm:p-6 space-y-6 xl:space-y-12 sm:border border-Utility-50 bg-white rounded-6 transition-all duration-300 group after:absolute after:inset-0 relative after:rounded-[inherit] after:pointer-events-none after:transition-all after:duration-300 max-sm:after:hidden" auto-align-item)
+		.img(class="")
+			+img({className:'ratio-[1/1] ratio-contain',src:'/img/product/i-1.webp'})
+		.content
+			.title(class="heading-4 text-primary-5 font-bold group-hover:text-primary-1 transition-all duration-300" align-element="title")
+				a(class="line-clamp-2") Soursop
+			.des(class="text-Utility-500" align-element="des") No sugar added/ no preservetives/ no artificial colors 
+			.infos.mt-3(align-element="infos" class="sm:block hidden")
+				-for(info=0;info<3;info++)
+					.info(class="flex items-center justify-between gap-3 py-2 border-b border-Utility-100 last:border-b-0 max-sm:flex-col max-sm:items-stretch")
+						.label(class="text-Utility-500") Capacity design
+						.ctn(class="text-primary-5 font-bold") 2850KG

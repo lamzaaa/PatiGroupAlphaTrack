@@ -1,0 +1,162 @@
+@layer components
+
+	// .module-toggle
+	// 	&[class*="module-split"]
+	// 		@apply grid base-gap
+	// 		&[data-split="2"]
+	// 			@apply lg:grid-cols-2
+	// 		&[data-split="3"]
+	// 			@apply lg:grid-cols-3
+	// 		&[data-split="4"]
+	// 			@apply lg:grid-cols-4
+	// 		// &[data-split="5"]
+
+	// .custom-list-disc
+	// 	ul
+	// 		@apply list-none p-0
+	// 	li
+	// 		@apply flex gap-3
+	// 		&::before
+	// 			content: ''
+	// 			background-image: url(/img/about/circle.svg)
+	// 			@apply w-4 clamp:h-[26px] bg-no-repeat bg-center bg-contain flex-none
+	.white-scrollbar
+		&::-webkit-scrollbar
+			width: setClamp(4)
+		&::-webkit-scrollbar-track
+			@apply bg-white/20
+		&::-webkit-scrollbar-thumb
+			@apply bg-white
+	.hide-scrollbar
+		scrollbar-width: none
+		&::-webkit-scrollbar
+			width: 0
+			height: 0
+
+	.keep-ul-disc
+		ul
+			@apply list-disc pl-5
+			li
+				&::marker
+					@apply clamp:text-[12px]
+	.primary-nav
+		@apply select-none flex justify-center
+		ul
+			@extend .hide-scrollbar
+			@apply flex items-center gap-3
+			@apply overflow-auto whitespace-nowrap
+		a
+			@apply px-6 rounded-full flex items-center text-center px:min-h-10 xl:rem:min-h-12
+			@apply heading-4 font-bold text-Utility-500 border border-Utility-200
+			@apply transition-all duration-300
+		li
+			&.active,&:hover
+				a
+					@apply bg-primary-4 text-white border-transparent
+			&.active
+				a
+					@apply pointer-events-none
+
+	.bg-image
+		@apply absolute inset-0
+		@apply [&_img]:size-full [&_img]:object-cover
+	[tab-wrapper]
+		[tab-item]
+			@apply cursor-pointer
+	.social-icon
+		@apply px:size-10 xl:size-14
+		@apply rounded-full flex items-center justify-center
+		@apply bg-primary-2 flex-none
+		&:hover
+			@apply bg-primary-1 border-transparent shadow-light
+		i
+			@apply text-xl text-white
+	.content-spacing
+		@apply [&_*+*]:mt-5
+		li
+			& + li
+				@apply mt-1
+	.medium-content-spacing
+		@apply [&_*+*]:mt-4
+	.custom-scrollbar
+		&::-webkit-scrollbar
+			width: setClamp(4)
+			height: setClamp(4)
+		&::-webkit-scrollbar-thumb
+			@apply bg-primary-1
+		&::-webkit-scrollbar-track
+			@apply bg-primary-5/50
+	.share-link
+		@apply clamp:size-10 flex items-center justify-center bg-primary-4
+		@apply rounded-full
+		@apply transition-all relative z-1
+		&::before
+			content: ''
+			background: radial-gradient(100% 1600% at 0% 0%, #00A8DF 0%, #FFFFFF 100%)
+			@apply absolute rounded-[inherit]
+			@apply inset-0
+			@apply transition-all -z-1 opacity-0
+		&:hover
+			@apply bg-transparent text-[#00427A]
+			&::before
+				@apply opacity-100
+	.marquee-wrapper
+		@apply overflow-hidden flex items-center whitespace-nowrap
+		.marquee
+			@apply flex
+
+	.auto-scroll-nav
+		@extend .hide-scrollbar
+	.primary-sticky-nav
+		@apply bg-white/90 backdrop-blur-[8px]
+		nav
+			@apply overflow-hidden flex justify-center
+			ul
+				@extend .hide-scrollbar
+				@apply flex items-center gap-6 md:gap-10 whitespace-nowrap overflow-auto
+
+			a
+				@apply block py-4
+				@apply relative transition-all duration-300
+				&::before
+					content: ''
+					@apply w-0 clamp:h-1px bg-primary-4
+					@apply absolute left-0 bottom-0 transition-all duration-300
+			li
+				&:hover,&.active
+					a
+						@apply text-primary-4
+				&.active
+					a
+						&::before
+							@apply w-full
+	// .sticky-wrapper
+	// 	&.is-sticky
+	.table-style-1
+		table
+			@apply w-full h-auto #{!important}
+			td
+				@apply border-y border-x-0 border-Utility-200
+				@apply py-3
+				@apply w-1/2 #{!important}
+				&:first-child
+					@apply font-bold
+			tr
+				&:first-child
+					td
+						@apply border-t-0
+						@apply pt-0
+				&:last-child
+					td
+						@apply border-b-0
+						@apply pb-0
+	.extend-content
+		@apply overflow-hidden
+	.extend-content-wrapper
+		&:not(.not-extendable):not(.active)
+			.extend-content
+				@apply relative
+				&::before
+					background: linear-gradient(180deg,rgba(255, 255, 255, 0) 80%, #f6f6f6 100%)
+					content: ''
+					@apply absolute inset-0

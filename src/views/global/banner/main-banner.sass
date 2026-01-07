@@ -1,0 +1,80 @@
+.main-banner
+	--sw: 1920
+	--sh: 1000
+	@screen sm
+		--sh: 960
+	[class*='prop'],.main-img
+		@apply absolute
+	.outside-prop
+		.prop-1
+			@apply left-0 bottom-0
+		.prop-2
+			top: calc(170 / var(--sh)*100%)
+			@apply right-0
+	.main-img
+		@apply w-[60%] sm:w-[50%] lg:%:w-[770/1920] top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2
+	.ratio-wrapper
+		+max-width(lg)
+			@apply ratio-[12/16]
+		.prop
+			@apply z-1
+	[data-banner-type="1"]
+		.prop-1
+			width: calc(216 / var(--sw) * 100%)
+			top: calc(120 / var(--sh)*100%)
+			left: calc(153 / var(--sw) * 100%)
+			[class*='ratio']
+				@apply ratio-[360/216]
+				@apply blur-[6px]
+		.prop-2
+			width: calc(141 / var(--sw) * 100%)
+			top: calc(420 / var(--sh)*100%)
+			left: calc(481 / var(--sw) * 100%)
+			[class*='ratio']
+				@apply ratio-[173/140]
+				@apply blur-[3px]
+		.prop-3
+			width: calc(190 / var(--sw) * 100%)
+			top: calc(686 / var(--sh)*100%)
+			left: calc(1320 / var(--sw) * 100%)
+		.prop-4
+			width: calc(683 / var(--sw) * 100%)
+			top: calc(629 / var(--sh)*100%)
+			left: calc(1376 / var(--sw) * 100%)
+			[class*='ratio']
+				@apply ratio-[544/683]
+				@apply blur-[3px]
+	[data-banner-type="2"]
+		.prop-1
+			width: calc(500 / var(--sw) * 100%)
+			top: calc(554 / var(--sh)*100%)
+			left: calc(-20 / var(--sw) * 100%)
+			[class*='ratio']
+				@apply blur-[6.9px]
+		.prop-2
+			width: calc(750 / var(--sw) * 100%)
+			top: calc(-270 / var(--sh)*100%)
+			left: calc(1470 / var(--sw) * 100%)
+			[class*='ratio']
+				@apply blur-[6.9px]
+		.prop-3
+			width: calc(300 / var(--sw) * 100%)
+			top: calc(233 / var(--sh)*100%)
+			left: calc(1595 / var(--sw) * 100%)
+		.prop-4
+			width: calc(496 / var(--sw) * 100%)
+			top: calc(698 / var(--sh)*100%)
+			left: calc(1567 / var(--sw) * 100%)
+			[class*='ratio']
+				@apply ratio-[383/496]
+				@apply blur-[4px]
+	.swiper-slide.swiper-slide
+		@apply opacity-100 #{!important}
+	.box-content
+		@apply px-[calc(var(--cp)+var(--data-width))] xl:rem:px-[88px] px:pb-4 xl:rem:pb-[122px]
+	.title
+		-webkit-text-stroke-color: #fff
+		paint-order: stroke fill
+		-webkit-text-stroke-width: 2px
+		@screen sm
+			-webkit-text-stroke-width: #{r(5)}

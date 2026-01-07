@@ -1,0 +1,35 @@
+.zoom-img
+	overflow: hidden
+	@screen xl
+		&:hover
+			img,svg
+				transform: scale(1.1)
+	.img
+		@apply overflow-hidden
+	img,svg
+		transition: .3s transform ease-in-out #{!important}
+	.not-zoom
+		img,svg
+			transform: none !important
+			transition: none !important
+	.img:not(.not-zoom)
+		@apply overflow-hidden
+		img,svg
+			transition: .3s transform ease-in-out #{!important}
+		@screen xl
+			&:hover
+				img,svg
+					transform: scale(1.1)
+
+@keyframes ping
+	0%
+		transform: scale(1)
+		opacity: 1
+
+	80%
+		transform: scale(1.2)
+		opacity: 0.09
+
+	100%
+		transform: scale(1.4)
+		opacity: 0

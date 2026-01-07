@@ -1,0 +1,20 @@
+.page-banner
+	--breadcrumb-height: auto
+	.img
+		&::after
+			background: linear-gradient(180deg, rgba(39, 42, 110, 0.00) 0%, rgba(39, 42, 110, 0.70) 67.09%, rgba(39, 42, 110, 0.90) 98.03%)
+			@apply %:h-[296/660]
+		+max-width(md)
+			[class*='ratio']
+				@apply pt-[60%]
+	& + .global-breadcrumb
+		@apply pt-0
+	// .title
+	// 	text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25)
+	.global-breadcrumb
+		@apply border-b-0
+		nav
+			@apply justify-center
+	.display-64
+		+max-width(sm)
+			@apply text-[2.3rem]

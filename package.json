@@ -1,0 +1,61 @@
+{
+	"name": "frontend-vittum-pug",
+	"private": true,
+	"version": "1.0.0",
+	"type": "module",
+	"author": "Lamzaaa",
+	"description": "Frontend for Vittum Pug",
+	"license": "MIT",
+	"engines": {
+		"node": ">=20.0.0"
+	},
+	"scripts": {
+		"dev": "vite --host",
+		"build": "vite build",
+		"build:css": "vite build --mode css-only",
+		"build:js": "vite build --mode js-only",
+		"preview": "vite preview",
+		"generate-imports": "node configs/generate-sass-imports.js",
+		"createFolder": "node configs/createInlineFolder.js",
+		"debug": "vite --debug hmr",
+		"deploy": "node configs/deploy.js",
+		"optimize-images": "node configs/generateImage.js"
+	},
+	"devDependencies": {
+		"@vituum/vite-plugin-pug": "^1.1.0",
+		"@vituum/vite-plugin-tailwindcss": "^1.2.0",
+		"autoprefixer": "^10.4.21",
+		"postcss": "^8.5.6",
+		"sharp": "^0.34.3",
+		"svgo": "^4.0.0",
+		"tailwindcss": "^3.4.17",
+		"vite": "^7.0.6",
+		"vite-plugin-image-optimizer": "^2.0.2"
+	},
+	"dependencies": {
+		"@fancyapps/ui": "^5.0.36",
+		"@rollup/plugin-inject": "^5.0.5",
+		"@tailwindcss/typography": "^0.5.19",
+		"@tailwindcss/vite": "^4.1.11",
+		"animejs": "^4.2.1",
+		"basic-ftp": "^5.0.5",
+		"caniuse-lite": "^1.0.30001746",
+		"cli-color": "^2.0.4",
+		"clipboardy": "^4.0.0",
+		"countup.js": "^2.9.0",
+		"glob": "^11.0.3",
+		"imagemin": "^9.0.1",
+		"imagemin-webp": "^8.0.0",
+		"inquirer": "^8.2.4",
+		"jquery": "^3.7.1",
+		"jquery.scrollto": "^2.1.3",
+		"lenis": "^1.3.8",
+		"lil-gui": "^0.20.0",
+		"log-symbols": "^7.0.1",
+		"lozad": "^1.16.0",
+		"ora": "^8.2.0",
+		"sass": "^1.89.2",
+		"swiper": "^12.0.3",
+		"toastify-js": "^1.12.0"
+	}
+}
