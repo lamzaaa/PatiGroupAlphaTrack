@@ -11,7 +11,9 @@ html(lang="en")
 	// CDN
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+	//- <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+
 	<link rel="icon" type="image/x-icon" href="/img/favicon.png">
 
 
@@ -19,7 +21,7 @@ html(lang="en")
 	// Styles	
 	link(rel="stylesheet" href="/src/styles/main.sass")
 	link(rel="stylesheet" href="/src/styles/global.sass")
-	//- link(rel="stylesheet" href="/src/styles/fontawesome.min.css")
+	link(rel="stylesheet" href="/src/styles/fontawesome.min.css")
 
 	body(class=bodyClass)
 		.hidden
@@ -31,7 +33,7 @@ html(lang="en")
 		main
 			block main
 		block footer
-			include ../global/Footer/footer
+			//- include ../global/Footer/footer
 		#fixed-tool(class="fixed z-[100] right-0 pointer-events-none")
 			ul
 				li(class="relative scrollToTop cursor-pointer")
