@@ -254,32 +254,6 @@
 		+max-width(sm)
 			--spv: 2
 
-	.swiper-scrollbar.swiper-scrollbar
-		@apply static
-		@apply bg-white/50 rounded-1 w-full
-		@apply px:h-1
-		.swiper-scrollbar-drag
-			@apply bg-primary-2 rounded-[inherit]
-			@apply h-full cursor-pointer
-		.swiper-scrollbar-drag
-			&:hover
-				@apply py-2 -my-2
-		&.on-draging-scrollbar
-			.swiper-scrollbar-drag
-				@apply py-2 -my-2
-
-	.swiper-scrollbar-helper
-		@apply flex items-center gap-3
-		@apply mt-10
-		.helper-icon
-			@apply w-[90px] xl:rem:w-[144px]
-			@apply pointer-events-none
-	&.arrow-edge
-		.arrow-button
-			.button-prev
-				@apply left-0
-			.button-next
-				@apply right-0
 .visible-slide
 	.swiper
 		@apply overflow-visible
@@ -354,3 +328,18 @@
 // 				@apply text-neutral-950
 // 				&::before
 // 					@apply text-neutral-500
+
+.swiper-scrollbar.swiper-scrollbar
+	@apply relative
+	@apply w-full
+	@apply px:h-1
+	@apply bg-black/15 rounded-none
+	.swiper-scrollbar-drag
+		@apply bg-primary-1 rounded-[inherit]
+		@apply h-full cursor-pointer
+	.swiper-scrollbar-drag
+		&:hover
+			@apply bg-primary-1/80
+	// &.on-draging-scrollbar
+	// 	.swiper-scrollbar-drag
+	// 		@apply bg-primary-4

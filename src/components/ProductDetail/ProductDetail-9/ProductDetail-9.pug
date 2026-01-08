@@ -1,11 +1,19 @@
 section.productdetail-9.section
 	.container
-		.grid(class="md:grid-cols-2 group")
+		.grid(class="md:grid-cols-2 group bg-[#f7f7f7] rounded-3 overflow-hidden")
 			.col-left(class="max-md:order-2 p-8")
 				.time(class="text-[#737373]") July 4th, 2025
-				h2.title(class="heading-32") Expert Advice from Dr. Emily Chen of a Premier New York Skin Clinic
-				.content
+				h2.title(class="heading-32 my-4 font-heading") Expert Advice from Dr. Emily Chen of a Premier New York Skin Clinic
+				.content.medium-content-spacing.text-lg
 					<p>“Your nutrition plays a powerful role in your appearance. If your body is missing key vitamins and nutrients, it can’t process fat and upkeep healthy connective tissue, which is why unprocessed fat flows up and starts pushing up against your skin, forming bumps you know as cellulite.</p>
 					<p>SmoothSkin by Sculptique™ contains ingredients that are scientifically proven to enhance microcirculation, boost lymphatic drainage, and reduce inflammation, which restores your tissue and breaks down the fat cells in your skin.”</p>
+				.button(class="md:w-fit")
+					.btn-add-to-cart(class="px:px-10 md:rem:px-20 mt-6") Try Lymphatic Drainage Risk-Free
+				.warranty-content(class="flex items-center justify-center gap-3 mt-4")
+					.icon(class="w-6")
+						+img({src:'https://cdn.shopify.com/s/files/1/0917/5649/5191/files/60-days_11622780_1_1.png?v=1752388395',className:'ratio-[1/1] ratio-contain'})
+					p 60 day money-back guarantee
 
 			.col-right
+				.img
+					+img({src:'https://trysculptique.com/cdn/shop/files/greendeskt-min.png?v=1758713213',className:'ratio-[551/620]'})

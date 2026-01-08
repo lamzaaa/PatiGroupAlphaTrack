@@ -1,0 +1,9 @@
+.productdetail-10
+	--mr: #{setClamp(16)}
+	--spv: 1.3
+	@screen md
+		--spv: 4
+	.video-frame
+		&:has(video.active)
+			.play-btn
+				@apply opacity-0

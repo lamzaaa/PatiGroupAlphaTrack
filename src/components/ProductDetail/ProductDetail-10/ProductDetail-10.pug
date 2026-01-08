@@ -1,1 +1,30 @@
-section.productdetail-10.section
+section.productdetail-10.section(class="bg-primary-2")
+	.container
+		.img(class="text-center clamp:max-w-[300px] mx-auto w-full")
+			+img({src:'https://cdn.shopify.com/s/files/1/0917/5649/5191/files/Trustpilot_review_2.png?v=1752485383'})
+		h2.title(class="heading-32 text-center my-4 font-heading") See The Stories of Sculptique™ Women Firsthand
+		-var contents_section_10 = [ { image: "https://trysculptique.com/cdn/shop/files/Screenshot_2025-07-14_at_12.40.11.png?v=1752486039", video: "https://cdn.shopify.com/videos/c/o/v/014b7db24d12443791bd22d345637ccc.mp4",}, { image: "https://trysculptique.com/cdn/shop/files/Screenshot_2025-07-14_at_16.12.02.png?v=1752498744", video: "https://cdn.shopify.com/videos/c/o/v/4eecdc1058f349628e1c50ba81112b54.mov",}, { image: "https://trysculptique.com/cdn/shop/files/Screenshot_2025-07-14_at_15.43.04.png?v=1752497038", video: "https://cdn.shopify.com/videos/c/o/v/2967808b09114feb9616d295fd2f3557.mp4",}, { image: "https://trysculptique.com/cdn/shop/files/Screenshot_2025-07-14_at_15.43.34.png?v=1752497063", video: "https://cdn.shopify.com/videos/c/o/v/88efaa94523742bdb8f980d66600cde2.mp4",}, { image: "https://trysculptique.com/cdn/shop/files/Screenshot_2025-07-14_at_16.11.50.png?v=1752498777", video: "https://cdn.shopify.com/videos/c/o/v/a7bce8da322747e08ef1ce7c87317c30.mp4",}, { image: "https://trysculptique.com/cdn/shop/files/Screenshot_2025-07-14_at_15.43.10.png?v=1752497092", video: "https://cdn.shopify.com/videos/c/o/v/3a117937ae264508b440a6972ebcb6a1.mp4",}, { image: "https://trysculptique.com/cdn/shop/files/Screenshot_2025-07-14_at_15.44.54.png?v=1752497118", video: "https://cdn.shopify.com/videos/c/o/v/27085ed5be5c4c38ad579f0fdae8aefa.mp4",}, { image: "https://trysculptique.com/cdn/shop/files/Screenshot_2025-07-14_at_15.46.37.png?v=1752497216", video: "https://cdn.shopify.com/videos/c/o/v/a4ab9e815f3446ea8b84292627ec2a10.mp4",}, { image: "https://trysculptique.com/cdn/shop/files/Screenshot_2025-07-14_at_15.45.36.png?v=1752497166", video: "https://cdn.shopify.com/videos/c/o/v/68b2aa06fab44d968723e052a14d87d5.mp4",}, { image: "https://trysculptique.com/cdn/shop/files/Screenshot_2025-07-14_at_15.47.12.png?v=1752497252", video: "https://cdn.shopify.com/videos/c/o/v/0ec8de99a9c3459da6c53e18c0eeab3c.mp4",}];
+		.relative
+			.swiper
+				.swiper-wrapper
+					-for(i=0;i<contents_section_10.length;i++)
+						.swiper-slide.dynamic-slide
+							.video-frame(class="ratio-[522/294] rounded-1 cursor-pointer")
+								.video-inner(class="absolute inset-0")
+									video.lozad(playsinline data-poster=contents_section_10[i].image)
+										source(data-src=contents_section_10[i].video)
+								.play-btn(class="w-8 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 absolute transition-all")
+									+img({src:'https://cdn.shopify.com/s/files/1/0917/5649/5191/files/mingcute_play-fill.png?v=1752485519',className:'ratio-[1/1]'})
+			.swiper-controller(class="flex items-center justify-between px:gap-2 md:rem:gap-[124px] mt-4")
+				.swiper-scrollbar(class="flex-1 w-full")
+				.button-wrapper(class="flex items-center justify-between gap-3")
+					.button-prev(class="px:w-8 cursor-pointer")
+						+img({src:'https://cdn.shopify.com/s/files/1/0917/5649/5191/files/iconamoon_arrow-up-2-thin_55aa38bb-cb5e-4608-9097-927814968771.png?v=1758716845',className:'ratio-[1/1]'})
+					.button-next(class="px:w-8 cursor-pointer")
+						+img({src:'https://cdn.shopify.com/s/files/1/0917/5649/5191/files/iconamoon_arrow-up-2-thin_55aa38bb-cb5e-4608-9097-927814968771.png?v=1758716845',className:'ratio-[1/1] rotate-180'})
+		.button(class="md:w-fit mx-auto")
+			.btn-add-to-cart(class="px:px-10 md:rem:px-25 mt-6") Try Lymphatic Drainage Risk-Free
+		.warranty-content(class="flex items-center justify-center gap-3 mt-4")
+			.icon(class="w-6")
+				+img({src:'https://cdn.shopify.com/s/files/1/0917/5649/5191/files/60-days_11622780_1_1.png?v=1752388395',className:'ratio-[1/1] ratio-contain'})
+			p 60 day money-back guarantee

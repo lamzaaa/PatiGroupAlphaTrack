@@ -21,8 +21,6 @@ import {
 import { globalJS } from "../../lib/global";
 import { fancyboxSetting } from "../../lib/fancyboxSetting";
 import { swiperInit } from "../../lib/SwiperInit";
-import { counterUpNumber } from "../../lib/counterUp";
-import { animateComponent } from "../../lib/animateComponent";
 globalThis.$ = globalThis.jQuery = $;
 
 //
@@ -57,12 +55,40 @@ export const body = $("body");
 export const nav_mobile = $(".nav-mobile");
 export const isTouchScreenOrMobile = ww < 1200 || isTouchDevice();
 
-function scriptsOnFontLoaded() {
-	document.fonts.ready.then(() => {
-		// var t0 = performance.now();
-		// var t1 = performance.now();
-		// console.log("Call to homepage took " + (t1 - t0) + " milliseconds.");
+function handlePlayVideo() {
+	const videos = $(".productdetail-10 .video-frame");
+	videos.each(function () {
+		const video = $(this).find("video");
+		if (!video.get(0)) return;
+		const siblingsVideo = $(this)
+			.closest(".swiper-slide")
+			.siblings()
+			.find("video");
+
+		video.on("click", function () {
+			togglePlayVideo(video.get(0));
+
+			if (siblingsVideo) {
+				siblingsVideo.each(function () {
+					const currentSiblingVideo = $(this);
+					if (!currentSiblingVideo.get(0).paused) {
+						currentSiblingVideo.get(0).pause();
+						currentSiblingVideo.removeClass("active");
+					}
+				});
+			}
+		});
 	});
+}
+function togglePlayVideo(video) {
+	if (video.paused) {
+		video.play();
+		video.muted = false;
+		$(video).addClass("active");
+	} else {
+		video.pause();
+		$(video).removeClass("active");
+	}
 }
 
 const FE = {
@@ -75,23 +101,20 @@ const FE = {
 window.FE = FE;
 
 $(document).ready(function () {
-	scriptsOnFontLoaded();
 	generateSVG();
 	// *** Lenis *** //
 	lenis.init();
 	// *** Global Function *** //
 	fancyboxSetting.init();
 	globalJS.init();
-	animateComponent.init();
 	// *** Swiper *** //
 	swiperInit();
 	// Utilities
 	lozadInit();
 	stickElementToEdge();
 	activeCommonNav();
-	counterUpNumber();
 	// *** Template *** //
-	//
+	handlePlayVideo();
 	// *** Tab *** //
 	customTab();
 	toggleFaqsAskModule();
