@@ -6,20 +6,21 @@ section.productdetail-3.section-bloating.section.pb-0
 				|  Are Actually Connected
 			.content(class="text-lg") If you're experiencing more than one of these symptoms, your body is trying to tell you something:
 		.grid(class="md:grid-cols-5 gap-4 mt-10")
-			-for(i=0;i<5;i++)
-				.item.text-center(class="flex flex-col")
+			-let contents_section_3 = [{ image: "https://trysculptique.com/cdn/shop/files/Untitled_design_3.png?v=1760689800", title:"Your stomach is flat in the morning, but by evening you look six months pregnant.",}, { image: "https://trysculptique.com/cdn/shop/files/Untitled_design_3_1.png?v=1760689799", title:'Your ankles disappear into "kankles" by the end of the day.',}, { image: "https://trysculptique.com/cdn/shop/files/Untitled_design_4.png?v=1760689801", title:"That dimpled, cottage cheese texture on your thighs won't go away no matter what you try.",}, { image: "https://trysculptique.com/cdn/shop/files/Untitled_design_4_1.png?v=1760689799", title:"You feel foggy and exhausted even after a full night's sleep.",}, { image: "https://trysculptique.com/cdn/shop/files/Untitled_design_3_2.png?v=1760689799", title:"You wake up stiff and achy, like your body aged overnight.",}];
+			-for(i=0;i<contents_section_3.length;i++)
+				.item.text-center(class="flex flex-col max-md:grid max-md:grid-cols-2 max-md:rounded-[6px] max-md:overflow-hidden")
 					.img
-						+img({src:'//trysculptique.com/cdn/shop/files/Untitled_design_3.png?v=1760689800',className:'ratio-[183/235]'})
-					.content(class="p-4 bg-[#f7f7f7] clamp:mt-[10px] flex-1")
-						.title() Your stomach is flat in the morning, but by evening you look six months pregnant.
+						+img({src:contents_section_3[i].image,className:'ratio-[183/235] clamp:rounded-t-[6px]'})
+					.content(class="p-4 bg-[#f7f7f7] md:clamp:mt-[10px] flex-1 clamp:min-h-[150px] max-md:flex max-md:items-center max-md:justify-center")
+						.title=contents_section_3[i].title
 		div(class="clamp:max-w-[920px] w-full mx-auto")
 			div(class="why-note-img")
 				div(class="md:block hidden")
 					.img
 						+img({src:'//trysculptique.com/cdn/shop/files/Group_7207.png?v=1760690771'})
 				div(class="md:hidden block")
-					.img
-						+img({src:'//trysculptique.com/cdn/shop/files/Frame_1000003583.png?v=1760690769'})
+					.img.mt-6
+						+img({src:'//trysculptique.com/cdn/shop/files/Frame_1000003583.png?v=1760690769',className:'max-w-[420px] w-full mx-auto block'})
 			.next-section-img(class="my-6")
 				.img(class="w-12 mx-auto")
 					+img({src:'https://cdn.shopify.com/s/files/1/0917/5649/5191/files/Frame_1000003589.png?v=1760690549',className:'ratio-[65/48]'})
@@ -28,8 +29,8 @@ section.productdetail-3.section-bloating.section.pb-0
 			.symptom-cause
 				div(class="md:block hidden")
 					.img
-						+img({src:'//trysculptique.com/cdn/shop/files/Frame_1000003590.png?v=1760690771'})
+						+img({src:'https://trysculptique.com/cdn/shop/files/Frame_1000003590.png?v=1760690771'})
 				div(class="md:hidden block")
 					.img
-						+img({src:'//trysculptique.com/cdn/shop/files/Frame_1000003590_1.png?v=1760690770'})
+						+img({src:'https://trysculptique.com/cdn/shop/files/Frame_1000003590_1.png?v=1760690770',className:'max-w-[420px] w-full mx-auto block'})
 			
