@@ -1,1 +1,10 @@
-section.productdetail-8.section
+section.productdetail-8.section-icons(class="bg-primary-2 py-8")
+	-let contents_section_8 = [{image:'https://trysculptique.com/cdn/shop/files/ship-min.png?v=1758713222',title: 'Free Shipping from USA',content:"On all orders",},{image:'https://trysculptique.com/cdn/shop/files/support-min.png?v=1758713216',title: 'Naturally Supports Your Body',content:"Promotes healthy immune cell functions",},{image:'https://trysculptique.com/cdn/shop/files/natural-min.png?v=1758713216',title: '100% Natural Ingredients',content:"8 active, natural ingredients",},{image:'https://trysculptique.com/cdn/shop/files/60-min.png?v=1758713216',title: 'Try it Risk Free for 60 Days',content:"60-day money-back guarantee",}];
+	.container
+		.grid(class="md:grid-cols-4 grid-cols-2 gap-6")
+			-for(i=0;i<contents_section_8.length;i++)
+				.item.text-center
+					.icon(class="w-10 mx-auto")
+						+img({src:contents_section_8[i].image,className:'ratio-[1/1] ratio-contain'})
+					.title(class="font-bold mt-4")=contents_section_8[i].title
+					.ctn.mt-2=contents_section_8[i].content

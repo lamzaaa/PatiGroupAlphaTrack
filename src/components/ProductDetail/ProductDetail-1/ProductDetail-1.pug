@@ -3,6 +3,7 @@ section.productdetail-1(class="py-8")
 	-let images2 = ["https://trysculptique.com/cdn/shop/files/LymphDrainageREWAMPEDvisualsArtboard4.jpg?v=1760103685","https://trysculptique.com/cdn/shop/files/LymphDrainageREWAMPEDvisualsArtboard5_1.jpg?v=1760103685","https://trysculptique.com/cdn/shop/files/LymphDrainageREWAMPEDvisualsArtboard5_2.jpg?v=1760103685"];
 	-let images3 = ["https://trysculptique.com/cdn/shop/files/tiredness-min.png?v=1758713216","https://trysculptique.com/cdn/shop/files/puffiness-min.png?v=1758713216"];
 	-let features = [{ image:"https://trysculptique.com/cdn/shop/files/population_12285628_1_e864791e-7a6d-4f08-9aea-3aeffba37cc7.png?v=1758713413" ,content: "Join over 93 Thousand who say - it WORKS!"}, { image:"https://trysculptique.com/cdn/shop/files/blood_13858030_1.png?v=1752064910" ,content: "Restores your body’s natural 24-hour lymphatic cycle"}, { image:"https://trysculptique.com/cdn/shop/files/thigh_1431039_1_a75a1917-7cc8-40dc-923b-d09cece1d6e9.png?v=1758713413" ,content: "Helps reduce fluid retention and the appearance of puffiness and bloating"}, { image:"https://trysculptique.com/cdn/shop/files/smile_3318262_1_1da99ae9-5c63-4339-af75-d35f89cd1cbc.png?v=1758713414" ,content: "Helps fall asleep faster, stay asleep longer and wake up energized"}, { image:"https://trysculptique.com/cdn/shop/files/blood_13858030_2_78da9178-9f3f-491e-a5f8-b4d69dd5b9cd.png?v=1758713414" ,content: "Eliminates joint stiffness, pain, morning creakiness and feel more grounded"}, { image:"https://trysculptique.com/cdn/shop/files/ecology_18588873_1_dad420da-2490-4e30-828a-28b366974307.png?v=1758713413" ,content: "Boosts energy, mental clarity and emotional balance"}];
+	-let mobileImages = ["https://trysculptique.com/cdn/shop/files/LymoPDPImagesArtboard1_8e287aa1-576e-42b1-9a87-ce2fcdaded3a.jpg?v=1760103674","https://trysculptique.com/cdn/shop/files/LymphDrainageREWAMPEDvisualsArtboard2.jpg?v=1760103684","https://trysculptique.com/cdn/shop/files/LymphDrainageREWAMPEDvisualsArtboard3copy.jpg?v=1760103684","https://trysculptique.com/cdn/shop/files/LymphDrainageREWAMPEDvisualsArtboard4.jpg?v=1760103685","https://trysculptique.com/cdn/shop/files/LymphDrainageREWAMPEDvisualsArtboard5_1.jpg?v=1760103685","https://trysculptique.com/cdn/shop/files/LymphDrainageREWAMPEDvisualsArtboard5_2.jpg?v=1760103685","https://trysculptique.com/cdn/shop/files/LymphDrainageREWAMPEDvisualsArtboard6.jpg?v=1760103685","https://trysculptique.com/cdn/shop/files/LymphDrainageREWAMPEDvisualsArtboard8.jpg?v=1760103685","https://trysculptique.com/cdn/shop/files/LymphDrainageREWAMPEDvisualsArtboard9.jpg?v=1760103684","https://trysculptique.com/cdn/shop/files/LymphDrainageREWAMPEDvisualsArtboard10.jpg?v=1760103684","https://trysculptique.com/cdn/shop/files/LymphDrainageREWAMPEDvisualsArtboard11.jpg?v=1760103684","https://trysculptique.com/cdn/shop/files/LymphDrainageREWAMPEDvisualsArtboard12.jpg?v=1760103685","https://trysculptique.com/cdn/shop/files/LymphDrainageREWAMPEDvisualsArtboard13.jpg?v=1760103685",];
 
 	.container
 		.grid(class="base-gap md:gap-16 lg:grid-cols-2")
@@ -15,7 +16,9 @@ section.productdetail-1(class="py-8")
 							.badge-img(class="w-30")
 								+img({src:'https://cdn.shopify.com/s/files/1/0917/5649/5191/files/nysale.png?v=1766822224',className:'ratio-[1/1]'})
 						.button(class="absolute bottom-8 left-1/2 -translate-x-1/2")
-							+btn-primary({title:'Nutritional Information',iconString:'<img src="https://cdn.shopify.com/s/files/1/0917/5649/5191/files/leaves_1247958_1_cf2e7df4-c113-4c3a-be49-f876ec94d873.png?v=1766822629"/>'})
+							.btn.btn-primary(data-fancybox data-popup='popup-nutrition' data-src="#popup-nutrition")
+								<img src="https://cdn.shopify.com/s/files/1/0917/5649/5191/files/leaves_1247958_1_cf2e7df4-c113-4c3a-be49-f876ec94d873.png?v=1766822629"/>
+								span Nutritional Information
 
 					div(class="grid grid-cols-2 gap-4 mt-4")
 						-for(i=0;i<images.length;i++)
@@ -31,12 +34,39 @@ section.productdetail-1(class="py-8")
 							.img
 								+img({src:`${images3[i]}}`})
 				.mobile-view(class="lg:hidden")
+					.main(class="relative")
+						.swiper
+							.swiper-wrapper
+								-for(i=0;i<mobileImages.length;i++)
+									.swiper-slide
+										.img.relative
+											+img({className:'ratio-[1/1] ratio-contain',src: mobileImages[i]})
+										-if(i===0)
+											.badge(class="absolute top-4 right-4")
+												.badge-img(class="px:w-20")
+													+img({src:'https://cdn.shopify.com/s/files/1/0917/5649/5191/files/nysale.png?v=1766822224',className:'ratio-[1/1]'})
+											.button(class="absolute bottom-8 left-1/2 -translate-x-1/2")
+												.btn.btn-primary(data-fancybox data-popup='popup-nutrition' data-src="#popup-nutrition")
+													<img src="https://cdn.shopify.com/s/files/1/0917/5649/5191/files/leaves_1247958_1_cf2e7df4-c113-4c3a-be49-f876ec94d873.png?v=1766822629"/>
+													span Nutritional Information
+						.button-wrapper(class="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 w-full px:px-6 z-1 pointer-events-none flex items-center justify-between")
+							.button-prev(class="px:w-8 pointer-events-auto cursor-pointer")
+								+img({src:'https://cdn.shopify.com/s/files/1/0917/5649/5191/files/iconamoon_arrow-up-2-thin_1.png?v=1752126281',className:'ratio-[1/1]'})
+							.button-next(class="px:w-8 pointer-events-auto cursor-pointer")
+								+img({src:'https://cdn.shopify.com/s/files/1/0917/5649/5191/files/iconamoon_arrow-up-2-thin.png?v=1752126281',className:'ratio-[1/1]'})
+					.thumb(class="px:mt-2")
+						.swiper
+							.swiper-wrapper
+								-for(i=0;i<mobileImages.length;i++)
+									.swiper-slide.dynamic-slide
+										.img(class="border border-neutral-200 transition-all duration-500 rounded-2 overflow-hidden")
+											+img({className:'',src:mobileImages[i]})
 			.col-right(class="space-y-4")
 				.product-reviews(class="flex items-center gap-4")
 					.rate
-						.img(class="w-25")
+						.img(class="px:w-15 md:w-25")
 							+img({src:"https://cdn.shopify.com/s/files/1/0917/5649/5191/files/Frame_229.png?v=1752064359",className:'ratio-[18/100]'})
-					.info
+					.info(class="max-md:text-xs")
 						p 4.8/5 Excellent | Based on 2381 Reviews
 				.product-title(class="heading-28 font-heading")
 					p New Maximum Potency Formula - Lymphatic Drainage Capsules by Sculptique™
@@ -85,7 +115,7 @@ section.productdetail-1(class="py-8")
 							p Delivered on 
 								time(class="bg-primary-1 rounded-2 text-white py-1 px-2") Monday, 12 January
 								|  with Express Shipping
-					.add-to-cart(class="bg-black text-lg clamp:min-h-[56px] text-white text-center font-bold flex items-center justify-center rounded-3 mt-3 transition-all hover:bg-black/80") ADD TO CART
+					.btn-add-to-cart ADD TO CART
 					.product-atc(class="flex mt-4 justify-center max-md:text-xs")
 						.atc-group-1(class="border-r border-black mr-4 pr-4")
 							.wrapper(class="flex items-center gap-2")
@@ -116,25 +146,25 @@ section.productdetail-1(class="py-8")
 								+img({src:`${notices[i].image}`,className:'ratio-[1/1] ratio-contain'})
 							.content=notices[i].content
 				-let customerReviews = [ { image: 'https://trysculptique.com/cdn/shop/files/AI_Nurse_Holding_TORC_2_efcbd677-7242-4cb2-9f99-ad1e3726b19b.png?v=1752500889', name: 'Margaret Ellison | FL', content: "<p><strong>Even my husband noticed... the spark came back. </strong></p><p>After years of hiding under coverups, picking apart my body, and feeling disconnected, I finally feel at ease again. I feel less bloated, lighter, like my body is working with me not against me. These past months, I’ve been present. Even my marriage feels renewed, not just in how I look but in how I feel. It’s hard to explain, but once you try it you’ll get it. I’d recommend this to my closest friends without question.</p>"}];
-				.customer-reviews
-				-for(i=0;i<customerReviews.length;i++)
-					.customer-item(class="bg-primary-2 p-3 rounded-3")
-						.ctm-top(class="flex items-center gap-4")
-							.avatar(class="w-18 flex-none")
-								+img({src:`${customerReviews[i].image}`,className:'ratio-[1/1] rounded-full'})
-							.info(class="space-y-2")
-								.info-top(class="flex items-center gap-3")
-									.name(class="flex-1")=customerReviews[i].name
-									.verified(class="w-30 flex-none")
-										+img({src:'https://cdn.shopify.com/s/files/1/0917/5649/5191/files/Frame_7966.png?v=1752068267', className:'ratio-[19/120]'})
-								.rate(class="w-25")
-									+img({src:'https://cdn.shopify.com/s/files/1/0917/5649/5191/files/stars-4.5_1.png?v=1752068267',className:'ratio-[18/100]'})
-						.ctm-content.mt-4(class="tracking-normal")
-							.description(class="[&_*+*]:mt-2")!=customerReviews[i].content
+				.customer-reviews(class="!mt-6")
+					-for(i=0;i<customerReviews.length;i++)
+						.customer-item(class="bg-primary-2 p-3 rounded-3")
+							.ctm-top(class="flex items-center gap-4")
+								.avatar(class="w-18 flex-none")
+									+img({src:`${customerReviews[i].image}`,className:'ratio-[1/1] rounded-full'})
+								.info(class="space-y-2")
+									.info-top(class="flex items-center gap-3")
+										.name(class="flex-1")=customerReviews[i].name
+										.verified(class="w-30 flex-none")
+											+img({src:'https://cdn.shopify.com/s/files/1/0917/5649/5191/files/Frame_7966.png?v=1752068267', className:'ratio-[19/120]'})
+									.rate(class="w-25")
+										+img({src:'https://cdn.shopify.com/s/files/1/0917/5649/5191/files/stars-4.5_1.png?v=1752068267',className:'ratio-[18/100]'})
+							.ctm-content.mt-4(class="tracking-normal")
+								.description(class="[&_*+*]:mt-2")!=customerReviews[i].content
 
-				.faqs.module-toggle(class="space-y-4" data-open-all='true')
+				.faqs.module-toggle(class="" data-open-all='true')
 					-for(i=0;i<3;i++)
-						.item(class="border border-[#d2d2d2] rounded-8 transition-all")
+						.item(class="border border-[#d2d2d2] rounded-8 transition-all mb-4")
 							.top(class="flex justify-between cursor-pointer p-4")
 								.title Ingredients proven by science
 								.icon(class="w-6 flex-none transition-all duration-500")
@@ -142,4 +172,10 @@ section.productdetail-1(class="py-8")
 							.bottom.hidden(class="px-4 pb-4")
 								.content(class="[&_*+*]:mt-3 [&_li+li]:mt-0")
 									<p><strong>Sculptique Ingredients:</strong></p><ul><li><strong>Echinacea purpurea Extract</strong> – Known for its anti-inflammatory properties, it may support skin health.</li><li><strong>Dandelion Extract</strong> – Traditionally used as a diuretic, it may help reduce water retention.<br><strong>Burdock Powder</strong> – Contains antioxidants that may promote skin clarity.</li><li><strong>Cleavers Extract</strong> – Believed to support lymphatic drainage and detoxification.</li><li><strong>Rutin</strong> – A flavonoid that may strengthen blood vessels and improve circulation.</li><li><strong>Bromelain Powder</strong> – An enzyme from pineapple that may reduce inflammation and support tissue repair.</li><li><strong>Lemon Powder</strong> – Rich in vitamin C, it may aid in collagen production and skin rejuvenation.</li><li><strong>Kelp Extract</strong> – A source of iodine and minerals that may support skin metabolism.</li></ul><p>These natural ingredients work together to reduce puffiness, bloating, fluid retention.</p>
-
+	.hidden
+		.popup-nutrition.text-center#popup-nutrition
+			.title(class="heading-28 mb-4 font-heading") Nutritional Information
+			.img
+				+img({src:'https://trysculptique.com/cdn/shop/files/ingredients-min.png?v=1758713223',lazy:false})
+			.btn-add-to-cart Try Lymphatic Drainage Risk-Free
+			<div class="main_product-points"><div class="main_product-point-line"><div><img src="https://cdn.shopify.com/s/files/1/0917/5649/5191/files/Mark_Icon_ce1ad4c9-5ec0-4162-969e-b565980ab82b.png?v=1752127285"></div><div><p>Made &amp; produced in the USA</p></div></div><div class="main_product-point-line"><div><img src="https://cdn.shopify.com/s/files/1/0917/5649/5191/files/Mark_Icon_ce1ad4c9-5ec0-4162-969e-b565980ab82b.png?v=1752127285"></div><div><p>100% Natural Ingredients</p></div></div><div class="main_product-point-line"><div><img src="https://cdn.shopify.com/s/files/1/0917/5649/5191/files/Mark_Icon_ce1ad4c9-5ec0-4162-969e-b565980ab82b.png?v=1752127285"></div><div><p>60-Day Money-Back Guarantee</p></div></div><div class="main_product-point-line"><div><img src="https://cdn.shopify.com/s/files/1/0917/5649/5191/files/Mark_Icon_ce1ad4c9-5ec0-4162-969e-b565980ab82b.png?v=1752127285"></div><div><p>Free Shipping</p></div></div></div>

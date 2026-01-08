@@ -1,1 +1,17 @@
-section.productdetail-4.section
+section.productdetail-4.section-info.section.pt-0
+	.container
+		div(class="clamp:max-w-[920px] w-full mx-auto")
+			.next-section-img(class="my-6")
+				.img(class="w-12 mx-auto")
+					+img({src:'https://cdn.shopify.com/s/files/1/0917/5649/5191/files/Frame_1000003589.png?v=1760690549',className:'ratio-[65/48]'})
+			.title(class="heading-32 font-heading text-center my-4") Your 
+				span(style='color:#039869') Hidden
+				|  Drainage System
+		.list-content
+			-let contents_section_4 =[{content:`<div class="pli_top-text"><p>Your lymphatic system is your body's internal cleaning crew—a network of vessels that processes <strong>3-4 liters of cellular waste and excess fluid every single day.</strong></p><p>When it's working properly, you don't even know it exists.</p><ul><li>Waste gets drained away</li><li>Fluid stays balanced.</li><li>Your body feels light and energized.</li></ul></div><div class="pli_pink-text"><p>But after age 35, declining estrogen hijacks this system's ability to function.</p></div><div class="pli_bottom-text"><ul><li>Vessel pumping weakens.</li><li>One-way valves fail.</li><li>Protein clogs form. </li><li>Vessel walls become leaky.</li></ul><p>Instead of processing and removing waste, it backs up in your tissues.</p></div>`,image:'https://trysculptique.com/cdn/shop/files/Frame_1484580366_1.png?v=1760701546'},{content:` <div class="pli_top-text"><p><strong>And it accumulates. Day after day. Week after week.</strong></p><p>That gallon of fluid your body should be draining every 24 hours? It's pooling in your stomach, your legs, your face—anywhere gravity and tissue structure allow it to settle.</p></div><div class="pli_pink-text"><p>The metabolic waste your cells produce overnight? It's still sitting there at noon. At dinner. While you're trying to fall asleep.</p><ul><li>That's why you're bloated. </li><li>That's why your ankles swell.</li><li>That's why you see cellulite.</li><li>That's why you feel exhausted and foggy.</li></ul></div><div class="pli_bottom-text"><p><strong>Your cells are literally sitting in their own waste—and your body can't flush it out.</strong></p><p>The longer this goes on, the worse it gets. More congestion. More inflammation. More pressure on an already compromised system.</p></div>`,image:'https://trysculptique.com/cdn/shop/files/ChatGPT_Image_Oct_10_2025_at_03_26_38_PM_2.png?v=1760702096'}]
+			-for(i=0;i<contents_section_4.length;i++)
+				.item.grid(class="md:grid-cols-2 base-gap md:rem:gap-[100px] mt-12 group items-center")
+					.col-left(class="text-lg group-even:md:order-2 small-content-spacing")!=contents_section_4[i].content
+					.col-right
+						.img
+							+img({src:contents_section_4[i].image,className:'ratio-[478/570] ratio-contain'})

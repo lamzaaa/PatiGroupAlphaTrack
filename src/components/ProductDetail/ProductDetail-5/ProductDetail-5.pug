@@ -1,1 +1,32 @@
-section.productdetail-5.section
+section.productdetail-5.section(class="bg-primary-2 mb-9")
+	.container
+		.title(class="heading-32 font-heading text-center my-4") Why Nothing Has
+			span(style='color:#039869')  Worked
+		-let contents_section_5 = [ { title:'You cut out gluten, dairy, sugar. You ate clean for months.',content:"Your diet only addressed what goes IN. It didn't fix your body's broken ability to drain what's already there.",image:'https://trysculptique.com/cdn/shop/files/X1.jpg?v=1760943360',}, { title:'YouYou tried viral lymphatic drops from TikTok.',content:'They’re just pricey water with trace herbs. The “active ingredients” are destroyed by stomach acid, and even if absorbed, only act as a mild diuretic. No vessel repair, no protein breakdown—just expensive urine.',image:'https://trysculptique.com/cdn/shop/files/X2.jpg?v=1760943359',}, { title:'You got lymphatic massage or bought compression socks.',content:"Temporary manual movement. Within 24-48 hours, everything backed up again because your vessels still can't pump on their own.",image:'https://trysculptique.com/cdn/shop/files/X3.jpg?v=1760943359'}];
+		.mt-10(class="grid md:grid-cols-3 clamp:gap-4")
+			-for(i=0;i<contents_section_5.length;i++)
+				.item(class="flex flex-col bg-white clamp:rounded-[6px] overflow-hidden")
+					.img
+						+img({src:contents_section_5[i].image,className:'ratio-[330/402]'})
+					.content(class="flex-1 p-6 flex flex-col text-center")
+						.title(class="text-xl  font-Trirong tracking-normal")=contents_section_5[i].title
+						.box-warning(class="bg-primary-3 py-2 px-4 text-center space-y-3 flex-1 mt-6 clamp:rounded-[6px]")
+							.title(class="flex items-center justify-center clamp:gap-1.5") Why it failed
+								.icon(class="clamp:w-6")
+									+img({src:'https://cdn.shopify.com/s/files/1/0917/5649/5191/files/Vector_6.png?v=1760696853',className:'ratio-[1/1] ratio-contain'})
+							.ctn(class="font-bold")=contents_section_5[i].content
+		div(class="max-w-[420px] md:clamp:max-w-[920px] w-full mx-auto max-md:mt-6")
+			div(class="why-note-img")
+				div(class="md:block hidden")
+					.img
+						+img({src:'//trysculptique.com/cdn/shop/files/Group_7207_1.png?v=1760694176',className:'ratio-[218/920]'})
+				div(class="md:hidden block")
+					.img
+						+img({src:'//trysculptique.com/cdn/shop/files/Frame_1000003583_1.png?v=1760694176'})
+		.button(class="md:w-fit mx-auto")
+			.btn-add-to-cart(class="px:px-10 md:rem:px-25 mt-6") Try Lymphatic Drainage Risk-Free
+		.warranty-content(class="flex items-center justify-center gap-3 mt-4")
+			.icon(class="w-6")
+				+img({src:'https://cdn.shopify.com/s/files/1/0917/5649/5191/files/60-days_11622780_1_1.png?v=1752388395',className:'ratio-[1/1] ratio-contain'})
+			p
+				strong 60 day money-back guarantee

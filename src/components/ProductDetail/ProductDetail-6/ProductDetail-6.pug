@@ -1,1 +1,33 @@
-section.productdetail-6.section
+section.productdetail-6.section(class="bg-primary-2")
+	-let contents_section_6 =[{title: 'Reactivate Lymphatic Pumps',image:'https://trysculptique.com/cdn/shop/files/Frame_1484580382.png?v=1760698909',subTitle: 'Cleavers Extract (100mg)',content: `<div><p>Restores rhythmic vessel contractions that move lymph through your system. Contains iridoids that "wake up" muscle cells in vessel walls. 2024 study showed enhanced immune cell activity for better waste clearance. </p><p>[Study: Enhanced NK cell activity in immunosuppressed models]</p></div>`,},{title: 'Flush Excess Fluid',image:'https://trysculptique.com/cdn/shop/files/Frame_1484580382_1.png?v=1760939908',subTitle: 'Dandelion Extract (250mg)',content: `<div><p>Proven gentle diuretic that increases fluid excretion without harsh side effects. Human trial showed statistically significant increase in urination frequency (p&lt;0.05) and excretion ratio (p&lt;0.001). </p><p>[Study: First human pilot study on diuretic effects]</p></div>`,},{title: 'Break Down Protein Clogs',image: 'https://trysculptique.com/cdn/shop/files/image_2.png?v=1760939909',subTitle: 'Bromelain Powder (100mg)',content: `<div><p>Proteolytic enzyme that clears blockages preventing drainage. Breaks down fibrin proteins creating "sludge" in vessels. 2024 RCT showed significantly greater reductions in swelling than placebo.</p><p>[Study: As effective as prescription NSAIDs for inflammation]</p></div>`,},{title: 'Strengthen Vessel Walls',image: 'https://trysculptique.com/cdn/shop/files/image_3.png?v=1760939909',subTitle: 'Rutin (100mg)',content: `<div><p>Reduces vessel permeability so fluid doesn't leak back into tissues. Clinical trials showed average 4.2 cm reduction in limb circumference over 6 months in lymphedema patients. </p><p>[Study: Systematic review of 1,643 participants]</p></div>`,},{title: 'Reduce Inflammation',image:'https://trysculptique.com/cdn/shop/files/Frame_1484580382_2.png?v=1760939909',subTitle: 'Burdock Root Powder (200mg)',content: `<div><p>&nbsp;Breaks the inflammation-congestion cycle. RCT showed significantly decreased inflammatory markers IL-6 and C-reactive protein (p&lt;0.001). Also supports hormonal balance. </p><p>[Study: 42-day trial in osteoarthritis patients]</p></div>`,},{title: 'Boost Immune Clearance',image: 'https://trysculptique.com/cdn/shop/files/image_4.png?v=1760939909',subTitle: 'Echinacea Purpurea Extract (500mg)',content: `<div><p>Enhances lymphocyte activity for better waste removal. Meta-analysis of 30 trials with 5,600+ participants showed 40% reduction in recurrent infections. </p><p>[Study: Increased NK cell cytotoxic activity]</p></div>`,},{title: 'Support Metabolism',image:'https://trysculptique.com/cdn/shop/files/Frame_1484580382_3.png?v=1760939909',subTitle: 'Kelp Extract (30mg)',content: `<div><p>Provides iodine for thyroid function and healthy metabolic rate. Sluggish thyroid=sluggish lymphatic drainage. Contains fucoxanthin shown to reduce body fat in human trials. </p><p>[Study: Dose-dependent increase in TSH levels]</p></div>`,},{title: 'Antioxidant Protection',image:'https://trysculptique.com/cdn/shop/files/Frame_1484580382_4.png?v=1760939910',subTitle: 'Lemon Powder (50mg)',content: `<div><p>Protects vessels from oxidative damage. RCT showed 145% improvement in vascular function (p&lt;0.001). Supports circulation and metabolic health. </p><p>[Study: Triple-masked trial in 90 participants]</p></div>`,}];
+	.container
+		div(class="clamp:max-w-[800px] mx-auto text-center space-y-4")
+			h2.title(class="heading-32 font-heading")
+				span(style='color:#039869') The 8-Ingredient System 
+				|  That Restores What Hormones Once Maintained
+			.content(class="md:text-lg") 
+				<p class="">Sculptique is the only formula that addresses ALL 6 mechanisms of lymphatic dysfunction simultaneously—not with symbolic doses, but with therapeutic amounts based on clinical research.<br>Not just moving fluid temporarily. Not just reducing inflammation. <strong>Complete restoration.</strong></p>
+		.grid(class="md:grid-cols-4 rounded-3 overflow-hidden clamp:border-[0.5px] border-black mt-10 bg-white" data-open-all="true").module-toggle
+			-for(i=0;i<contents_section_6.length;i++)
+				.item
+					.trigger-point(class="clamp:border-[0.5px] border-black p-6 space-y-3 h-full cursor-pointer")
+						.wrap-top
+							.wrapper(class="flex items-center justify-center gap-2")
+								.icon(class="w-4")
+									+img({src:'https://cdn.shopify.com/s/files/1/0917/5649/5191/files/check-mark_17013456_2.png?v=1760698419',className:'ratio-[1/1] ratio-contain'})
+								.title(class="" style="color:#0c7c00")=contents_section_6[i].title
+							.img.my-3(class="md:block hidden")
+								+img({src:contents_section_6[i].image,className:'ratio-[80/260] ratio-contain'})
+						.wrap-middle(class="flex items-center justify-between gap-3")
+							.img(class="md:hidden w-25")
+								+img({src:contents_section_6[i].image,className:'ratio-[68/98] ratio-contain'})
+							.sub-title(class="font-Trirong font-semibold tracking-normal text-black/75 max-md:flex-1")
+								h5=contents_section_6[i].subTitle
+							.icon(class='w-6')
+								+img({src:'https://cdn.shopify.com/s/files/1/0917/5649/5191/files/weui_arrow-outlined.png?v=1760698626',className:'ratio-[1/1] ratio-contain'})
+						.bottom.hidden
+							.content(class="text-sm tracking-normal")!=contents_section_6[i].content
+		div(class="mx-auto w-full md:rem:max-w-[580px] mt-10")
+			.img
+				+img({src:'https://trysculptique.com/cdn/shop/files/Frame_1000003583_2.png?v=1760697982',className:'ratio-[480/580] ratio-contain md:block hidden'})
+				+img({src:'//trysculptique.com/cdn/shop/files/Frame_1000003583_3.png?v=1760697982',className:'md:hidden'})

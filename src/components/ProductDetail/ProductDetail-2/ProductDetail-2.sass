@@ -1,0 +1,12 @@
+.marquee-outer
+	--gap: 5rem
+	@apply overflow-hidden w-full
+	.marquee-inner
+		animation: marquee 60s infinite linear
+		@apply gap-[--gap]
+		@apply w-max flex items-center
+	img
+		@apply clamp:h-[30px] w-auto object-contain block
+	@keyframes marquee
+		to
+			transform: translate(calc(-50% - calc(var(--gap)/2)))

@@ -7,6 +7,7 @@ import plugin from "tailwindcss/plugin";
 function clamp(min, max = min) {
 	const minPx = parseFloat(min);
 	const maxPx = parseFloat(max);
+	const minValue = (minPx / 1920) * 100 + "rem";
 	const maxValue = (maxPx / 1920) * 100 + "rem";
 	return `clamp(${minPx}px, ${maxValue}, ${maxValue})`;
 }
@@ -76,6 +77,7 @@ export default {
 			fontFamily: {
 				heading: ["Lora", "serif"],
 				Montserrat: ["Montserrat", "sans-serif"],
+				Trirong: ["Trirong", "serif"],
 				body: ["Nunito", "sans-serif"],
 				Awesome6: ["'Font Awesome 6 Pro'"],
 				Awesome6Brands: ["'Font Awesome 6 Brands'"],
@@ -88,8 +90,8 @@ export default {
 				primary: {
 					1: "#039869",
 					2: "#f3eee0",
-					3: "#ffffff",
-					4: "#f8961d",
+					3: "#ffe3e3",
+					4: "#a60003",
 					5: "#272a6e",
 				},
 				secondary: {
@@ -369,9 +371,26 @@ export default {
 							objectFit: "cover",
 						},
 					},
+					".heading-24": {
+						lineHeight: 1.3,
+						fontSize: 18,
+						"@screen md": {
+							fontSize: clamp(18, 24),
+						},
+					},
 					".heading-28": {
-						fontSize: clamp(24, 28),
 						lineHeight: 1.4,
+						fontSize: 24,
+						"@screen md": {
+							fontSize: clamp(24, 28),
+						},
+					},
+					".heading-32": {
+						lineHeight: 1.3,
+						fontSize: 24,
+						"@screen md": {
+							fontSize: clamp(24, 32),
+						},
 					},
 				},
 			]);

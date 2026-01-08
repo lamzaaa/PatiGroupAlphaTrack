@@ -1,66 +1,66 @@
 //! Header
 body
-    --header-height: 80px
-    --header-top: 20px
-    --hd-sub-fs: 14px
-    --hd-fs: 14px
-    // --m-header: var(--header-height)
-    --m-header: calc(var(--header-height) *1.1)
-    @screen sm
-        --header-height: 80px
-        --hd-fs: 16px
-    @screen xl
-        --header-height: #{setClamp(98)}
-        --header-top: #{r(40)}
-        --hd-sub-fs: #{r(14)}
-        --hd-fs: #{r(16)}
+	--header-height: 80px
+	--header-top: 20px
+	--hd-sub-fs: 14px
+	--hd-fs: 14px
+	// --m-header: var(--header-height)
+	--m-header: calc(var(--header-height) *1.1)
+	@screen sm
+		--header-height: 80px
+		--hd-fs: 16px
+	@screen xl
+		--header-height: #{setClamp(98)}
+		--header-top: #{r(40)}
+		--hd-sub-fs: #{r(14)}
+		--hd-fs: #{r(16)}
 
 //! Container
 body
-    --cp: 16px
-    --cp-fluid: var(--cp)
-    @screen md
-        --cp: 16px
-    @screen xl
-        --cp: #{r(20)}
-        --cp-fluid: #{r(120)}
-    @screen 2xl
-        --cp-fluid: #{r(160)}
+	--cp: 16px
+	--cp-fluid: var(--cp)
+	@screen md
+		--cp: 16px
+	@screen xl
+		--cp: #{r(20)}
+		--cp-fluid: #{r(120)}
+	@screen 2xl
+		--cp-fluid: #{r(160)}
 
 //! Slide
 body
-    --mr: 16px
-    --spv: 1
-    --dsw: calc(calc(100% - calc(var(--mr) * calc(var(--spv) - 1)))/var(--spv))
-    @screen xl
-        --mr: #{r(40)}
+	--mr: 16px
+	--spv: 1
+	--dsw: calc(calc(100% - calc(var(--mr) * calc(var(--spv) - 1)))/var(--spv))
+	@screen xl
+		--mr: #{r(40)}
 
 //! Slide Button
 body
-    --data-width: 40px
-    --data-height: 40px
-    --gap: 8px
-    @screen xl
-        --gap: #{r(8)}
-        --data-width: #{r(56)}
-        --data-height: #{r(56)}
+	--data-width: 40px
+	--data-height: 40px
+	--gap: 8px
+	@screen xl
+		--gap: #{r(8)}
+		--data-width: #{r(56)}
+		--data-height: #{r(56)}
 
 //! Section 
 body
-    --section-py: 40px
-    @screen md
-        --section-py: 50px
-    @screen xl
-        --section-py: #{r(60)}
+	--section-py: 32px
+	@screen md
+		--section-py: 56px
+	@screen xl
+		--section-py: #{r(56)}
 
 //! Play Btn
 body
-    --play-btn-size: 40px
-    @screen sm
-        --play-btn-size: 52px
-    @screen lg
-        --play-btn-size: #{r(64)}
+	--play-btn-size: 40px
+	@screen sm
+		--play-btn-size: 52px
+	@screen lg
+		--play-btn-size: #{r(64)}
 
 //! Breadcrumb
 body
-    --breadcrumb-height: #{setClamp(54)}
+	--breadcrumb-height: #{setClamp(54)}
